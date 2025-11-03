@@ -63,11 +63,13 @@ export function CTA() {
             <div className="border-border/50 bg-background/80 rounded-xl border p-8 sm:p-12 lg:p-16 shadow-lg backdrop-blur-sm">
               <div className="mx-auto max-w-xl lg:max-w-none">
                 <h2 id="cta-heading" className="text-center text-2xl font-bold tracking-tight uppercase sm:text-3xl lg:text-4xl">
-                  Ready to transform your customer relationships?
+                  Ready to replace clicks with conversations?
                 </h2>
                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-center text-lg">
-                  Join thousands of companies using our platform to grow their
-                  business. Start your free trial today.
+                  Join companies that have switched from click-by-click navigation to
+                  natural chat interactions. Experience platforms where you simply
+                  describe what you need, and it happens instantly—no more hunting
+                  through menus and buttons.
                 </p>
                 <div className="relative mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-6">
                   {/* Decorative elements around buttons */}
@@ -78,13 +80,13 @@ export function CTA() {
                     href="/dashboard"
                     icon={<ArrowRight className="h-4 w-4" aria-hidden="true" />}
                   >
-                    START FREE TRIAL
+                    GET STARTED
                   </CTAButton>
                   
-                  <CTAButton variant="outline">SCHEDULE A DEMO</CTAButton>
+                  <CTAButton variant="outline" href="/dashboard">SEE OUR PLATFORMS</CTAButton>
                 </div>
                 <p className="text-muted-foreground mt-6 text-center text-sm">
-                  No credit card required. 14-day free trial.
+                  Free consultation • Seamless migration • Constant improvements
                 </p>
               </div>
             </div>

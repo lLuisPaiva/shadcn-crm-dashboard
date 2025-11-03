@@ -16,14 +16,11 @@ const HeroTitle = () => {
     <div className="relative">
       <h1 className="inline-block max-w-6xl leading-none font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
         <div className="relative mb-3 pb-2 text-center text-4xl sm:text-5xl md:mb-5 md:text-6xl">
-          <span className="inline-block">TURN INTERACTIONS INTO</span>
+          <span className="inline-block">REPLACE CLICKS WITH</span>
         </div>
         <div className="mt-1 block text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="bg-primary text-primary-foreground relative inline-block px-4 py-1">
-            REVENUE
-          </span>
-          <span className="text-foreground ml-2 inline-block uppercase">
-            Growth
+            CONVERSATIONS
           </span>
         </div>
       </h1>
@@ -115,13 +112,15 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-32 sm:px-6 sm:py-40 md:min-h-screen lg:min-h-screen lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <BadgeLabel text="New: Analytics Dashboard 2.0" />
+          <BadgeLabel text="From Clicks to Conversations" />
 
           <HeroTitle />
 
           <p className="text-muted-foreground mt-8 max-w-2xl text-center text-lg">
-            Transform how you connect with customers. Piper brings AI-powered
-            insights, automation, and a delightful interface to your CRM.
+            Stop clicking through endless menus and buttons. Our platforms and
+            dashboards replace the majority of click-by-click actions with
+            intuitive chat actions. Simply describe what you need, and get it
+            done instantly. Work faster, smarter, and more naturally.
           </p>
 
           <div className="relative mt-12 flex flex-col gap-5 sm:flex-row sm:gap-6">
@@ -139,14 +138,14 @@ export function Hero() {
               href="/dashboard"
               icon={<ArrowRight className="h-4 w-4" aria-hidden="true" />}
             >
-              START FREE TRIAL
+              GET STARTED
             </CTAButton>
 
-            <CTAButton variant="outline">BOOK A DEMO</CTAButton>
+            <CTAButton variant="outline" href="/dashboard">SEE OUR PLATFORMS</CTAButton>
           </div>
 
           <p className="text-muted-foreground mt-4 text-sm">
-            No credit card required • 14-day free trial
+            Free consultation • Seamless migration • Constant improvements
           </p>
 
           {/* Stats bar */}
@@ -163,7 +162,7 @@ export function Hero() {
                 <p className="text-lg font-bold">245%</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Lead conversion rate
+                Fewer clicks required
               </p>
             </div>
             <div className="text-center">
@@ -172,19 +171,19 @@ export function Hero() {
                   className="h-4 w-4 text-yellow-500"
                   aria-hidden="true"
                 />
-                <p className="text-lg font-bold">3.8M</p>
+                <p className="text-lg font-bold">10x</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Customer interactions
+                Faster with chat actions
               </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1.5">
                 <Users className="h-4 w-4 text-green-500" aria-hidden="true" />
-                <p className="text-lg font-bold">15k+</p>
+                <p className="text-lg font-bold">Chat</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Companies onboarded
+                Instead of clicking
               </p>
             </div>
           </div>

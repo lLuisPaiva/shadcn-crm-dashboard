@@ -120,50 +120,53 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
  */
 const tiers = [
   {
-    name: "Starter",
-    price: "$29",
-    description: "Perfect for small teams just getting started",
+    name: "Platform Migration",
+    price: "From $2k",
+    description: "Migrate from click-heavy platforms to chat-driven solutions",
     features: [
-      "Up to 5 team members",
-      "Basic email automation",
-      "Customer data insights",
-      "Standard support",
-      "1GB storage",
+      "Replace click-by-click workflows",
+      "Chat-based interactions",
+      "Multi-device chat access",
+      "Team training & onboarding",
+      "Natural language commands",
+      "3 months support",
+      "Regular updates",
     ],
-    cta: "Start free trial",
+    cta: "Get quote",
     popular: false,
   },
   {
-    name: "Professional",
-    price: "$79",
-    description: "Ideal for growing businesses",
+    name: "Complete Platform",
+    price: "From $5k",
+    description: "Complete chat-driven platform replacing clicks with conversations",
     features: [
-      "Up to 20 team members",
-      "Advanced automation workflows",
-      "AI-powered insights",
-      "Priority support",
-      "10GB storage",
-      "Custom integrations",
-      "API access",
+      "Chat replaces majority of clicks",
+      "Natural language interactions",
+      "Intelligent dashboards with chat",
+      "All devices ready",
+      "Custom chat workflows",
+      "6 months support",
+      "Constant evolution",
+      "Seamless migration",
     ],
-    cta: "Start free trial",
+    cta: "Get quote",
     popular: true,
   },
   {
-    name: "Enterprise",
+    name: "Enterprise Solutions",
     price: "Custom",
-    description: "For large organizations with specific needs",
+    description: "Large-scale platform modernization for entire organizations",
     features: [
-      "Unlimited team members",
-      "Custom automation workflows",
+      "Company-wide improvements",
       "Advanced AI capabilities",
-      "24/7 dedicated support",
-      "Unlimited storage",
-      "Custom development",
+      "Multi-platform integration",
+      "Dedicated support",
+      "24/7 availability",
       "SLA guarantee",
-      "On-premise deployment",
+      "Unlimited devices",
+      "Custom development",
     ],
-    cta: "Contact sales",
+    cta: "Contact us",
     popular: false,
   },
 ];
@@ -194,8 +197,8 @@ export function Pricing() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Simple, Transparent Pricing"
-          subtitle="Choose the plan that best fits your needs. All plans include a 14-day free trial with no credit card required."
+          title="Chat-Driven Platforms & Pricing"
+          subtitle="Migrate to platforms where chat replaces clicks. Our solutions transform your work by letting you interact naturally—describe what you need instead of clicking through endless menus."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
@@ -204,21 +207,23 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Custom plan section */}
+        {/* Consultation section */}
         <div className="border-border/50 bg-background/50 mt-24 rounded-xl border p-8 text-center">
           <h3 className="text-2xl font-bold tracking-tight" id="custom-plan">
-            Need a Custom Plan?
+            Free Consultation
           </h3>
           <p className="text-muted-foreground mx-auto mt-4 max-w-md text-lg">
-            Contact our sales team for a tailored solution that meets your
-            specific requirements.
+            Book a free consultation to see how we can replace your click-by-click
+            workflows with chat actions. We'll analyze your current platforms, show
+            you the chat capabilities, and demonstrate how much faster your work can
+            be—no obligation, just honest insights.
           </p>
           <Button
             className="mt-8 h-14 px-8 font-semibold tracking-wide"
             size="lg"
             variant="outline"
           >
-            Contact Sales
+            Book Consultation
           </Button>
         </div>
       </div>

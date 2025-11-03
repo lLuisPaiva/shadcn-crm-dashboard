@@ -121,11 +121,13 @@ export function Footer() {
                 <Zap className="text-primary h-6 w-6" />
               </div>
               <span className="ml-4 text-xl font-bold tracking-tight">
-                Piper
+                Typeble
               </span>
             </div>
             <p className="text-muted-foreground text-base">
-              Making customer relationships smarter, faster, and more human.
+              Replacing click-by-click actions with natural chat interactions.
+              Our platforms and dashboards understand what you need—just describe
+              it in chat and watch it happen instantly.
             </p>
             <div className="flex space-x-5">
               {navigation.social.map((item) => (
@@ -191,7 +193,7 @@ export function Footer() {
         </div>
         <div className="border-border/50 mt-12 border-t pt-8">
           <p className="text-muted-foreground text-center text-sm">
-            &copy; {new Date().getFullYear()} Piper, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Typeble, Inc. All rights reserved.
           </p>
         </div>
       </div>

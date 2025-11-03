@@ -1,7 +1,7 @@
 "use client";
 
 // External imports
-import { QuoteIcon } from "lucide-react";
+import { Quote } from "lucide-react";
 
 // Internal imports
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -51,7 +51,7 @@ const TestimonialCard = ({
               className="bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 items-center justify-center rounded-full transition-all"
               aria-hidden="true"
             >
-              <QuoteIcon className="text-primary h-6 w-6" />
+              <Quote className="text-primary h-6 w-6" />
             </div>
             <div className="text-muted-foreground text-right text-sm tracking-wide italic">
               Client Testimonial
@@ -95,23 +95,23 @@ const TestimonialCard = ({
 const testimonials = [
   {
     quote:
-      "This platform has transformed how we manage customer relationships. The AI features are a game-changer for our team's productivity.",
+      "I used to waste hours clicking through menus and forms. Now I just chat with the dashboard and it happens instantly. 'Show me sales from last month' or 'Create a report for Q3'—done in seconds, not minutes. This is how platforms should work.",
     author: "Sarah Chen",
-    role: "Head of Sales, TechCorp",
+    role: "CEO, TechCorp Solutions",
     avatar: "/avatars/avatar.png",
   },
   {
     quote:
-      "The automation capabilities have saved us countless hours. Our customer satisfaction scores have improved significantly.",
+      "The chat interface has completely changed how our team works. Instead of training people on complex navigation and clicking through multiple screens, they just ask for what they need. Tasks that took 10 clicks now take one message. Game changer.",
     author: "Michael Rodriguez",
-    role: "Customer Success Manager, GrowthX",
+    role: "Operations Manager, GrowthX",
     avatar: "/avatars/avatar.png",
   },
   {
     quote:
-      "The analytics insights helped us identify key opportunities we were missing. Our revenue has grown 40% since implementing.",
+      "We replaced most of our click-by-click workflows with chat actions. The platform understands natural language, so we're not fighting with menus anymore. Want data? Just ask. Need to create something? Describe it. It's intuitive and incredibly fast.",
     author: "Emma Thompson",
-    role: "VP of Operations, ScaleUp Inc",
+    role: "Director of Operations, ScaleUp Inc",
     avatar: "/avatars/avatar.png",
   },
 ];
@@ -142,8 +142,8 @@ export function Testimonials() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Trusted by Teams Worldwide"
-          subtitle="See what our customers are saying about their experience with our platform."
+          title="Companies Switching from Clicks to Chat"
+          subtitle="See how CEOs and employees are working faster by replacing click-by-click actions with natural chat interactions on our platforms."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -6,9 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Piper - Customer Relationship Management",
+  title: "Typeble - Replace Clicks with Chat Actions | Conversational Platforms",
   description:
-    "CRM dashboard for managing customer relationships using Next.js, Shadcn UI",
+    "Stop clicking through endless menus. Our platforms and dashboards replace click-by-click actions with intuitive chat interactions. Simply describe what you need, and get it done instantly.",
 };
 
 export default function RootLayout({
