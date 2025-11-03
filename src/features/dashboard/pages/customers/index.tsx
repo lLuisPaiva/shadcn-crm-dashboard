@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { Plus, MessageSquare } from "lucide-react";
 import { useCustomers } from "./hooks/use-customers";
 import { CustomersTable } from "./components/customers-table";
 import { CustomersFilters } from "./components/customers-filters";
 import { Button } from "@/components/ui/button";
+import { DashboardChat } from "@/components/dashboard-chat";
 
 export function CustomersPage() {
   const {
@@ -22,11 +24,28 @@ export function CustomersPage() {
   } = useCustomers();
 
   const isEmpty = allCustomers.length === 0;
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const handleChatAction = (action: string) => {
+    console.log("Chat action:", action);
+    
+    if (action === "create_customer") {
+      window.location.href = "/dashboard/customers/new";
+    } else if (action.includes("filter") || action.includes("search")) {
+      // Handle filter/search actions from chat
+      // In real implementation, parse the chat input and update filters
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight">Customers</h1>
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Customers</h1>
+          <p className="text-muted-foreground mt-1 text-sm">
+            Instead of clicking buttons, chat with me to find, create, or manage customers
+          </p>
+        </div>
         <div className="flex items-center gap-4">
           <Link href="/dashboard/customers/new">
             <Button>
@@ -34,8 +53,25 @@ export function CustomersPage() {
               New Customer
             </Button>
           </Link>
+          <DashboardChat context="customers" onAction={handleChatAction} open={chatOpen} onOpenChange={setChatOpen} />
         </div>
       </div>
+
+      <button
+        onClick={() => setChatOpen(true)}
+        className="bg-primary/5 hover:bg-primary/10 border-primary/20 hover:border-primary/30 rounded-lg border p-4 text-left transition-colors cursor-pointer"
+      >
+        <div className="flex items-start gap-3">
+          <MessageSquare className="text-primary mt-0.5 h-5 w-5 shrink-0" />
+          <div>
+            <p className="text-sm font-medium">Try chatting instead of clicking!</p>
+            <p className="text-muted-foreground mt-1 text-xs">
+              Say things like "Create a new customer" or "Show me customers from TechCorp" 
+              Instead of clicking through forms and filters, just describe what you need. Click here to start chatting.
+            </p>
+          </div>
+        </div>
+      </button>
 
       <div className="rounded-lg border bg-card">
         <div className="border-b p-4">

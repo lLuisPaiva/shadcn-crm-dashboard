@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,24 +23,80 @@ import {
   Phone,
   MessageSquare,
 } from "lucide-react";
+import { DashboardChat } from "@/components/dashboard-chat";
 
 export function OverviewPage() {
+  const [timeRange, setTimeRange] = useState<string>("Last 30 Days");
+  const [chatOpen, setChatOpen] = useState(false);
+
+  const handleChatAction = (action: string) => {
+    console.log("Chat action:", action);
+    
+    // Handle different actions from chat
+    if (action.includes("last_month") || action.includes("previous")) {
+      setTimeRange("Last 30 Days");
+    } else if (action.includes("this_month") || action.includes("current")) {
+      setTimeRange("Last 7 Days");
+    }
+    
+    // In a real implementation, you would navigate, update state, or trigger actions
+    // For example: router.push('/dashboard/reports/sales')
+  };
+
   return (
     <div className="flex flex-col gap-4 md:gap-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
-          Analytics
-        </h1>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button variant="outline" className="flex-1 sm:flex-none">
-            Last 7 Days
-          </Button>
-          <Button variant="outline" className="flex-1 sm:flex-none">
-            Last 30 Days
-          </Button>
-          <Button className="flex-1 sm:flex-none">Custom Range</Button>
+        <div>
+          <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
+            Analytics
+          </h1>
+          <p className="text-muted-foreground mt-1 text-sm">
+            Instead of clicking buttons, chat with me to filter data or view reports
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <Button 
+              variant={timeRange === "Last 7 Days" ? "default" : "outline"} 
+              className="flex-1 sm:flex-none"
+              onClick={() => setTimeRange("Last 7 Days")}
+            >
+              Last 7 Days
+            </Button>
+            <Button 
+              variant={timeRange === "Last 30 Days" ? "default" : "outline"} 
+              className="flex-1 sm:flex-none"
+              onClick={() => setTimeRange("Last 30 Days")}
+            >
+              Last 30 Days
+            </Button>
+            <Button 
+              variant={timeRange === "Custom Range" ? "default" : "outline"}
+              className="flex-1 sm:flex-none"
+              onClick={() => setTimeRange("Custom Range")}
+            >
+              Custom Range
+            </Button>
+          </div>
+          <DashboardChat context="analytics" onAction={handleChatAction} open={chatOpen} onOpenChange={setChatOpen} />
         </div>
       </div>
+      
+      <button
+        onClick={() => setChatOpen(true)}
+        className="bg-primary/5 hover:bg-primary/10 border-primary/20 hover:border-primary/30 rounded-lg border p-4 text-left transition-colors cursor-pointer"
+      >
+        <div className="flex items-start gap-3">
+          <MessageSquare className="text-primary mt-0.5 h-5 w-5 shrink-0" />
+          <div>
+            <p className="text-sm font-medium">Try chatting instead of clicking!</p>
+            <p className="text-muted-foreground mt-1 text-xs">
+              Say things like "Show me sales from last month" or "What's my customer retention?" 
+              Instead of clicking through filters, just describe what you need. Click here to start chatting.
+            </p>
+          </div>
+        </div>
+      </button>
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
