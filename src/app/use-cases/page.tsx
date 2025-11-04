@@ -9,19 +9,19 @@ import { Building2, Zap } from "lucide-react";
 const useCases = [
   {
     industry: "Printing & Graphics",
-    challenge: "Creating quotes takes too long, customers wait for pricing.",
+    challenge: "Creating quotes takes too long, customers wait for pricing.",   
     solution: [
       "AI monitors incoming emails with quote requests",
-      "Automatically analyzes requirements (quantity, materials, specifications)",
+      "Automatically analyzes requirements (quantity, materials, specifications)",                                                                              
       "Generates complete quote with pricing calculations",
       "User only needs to validate and send",
     ],
     result: "Quotes ready in seconds instead of hours",
-    example: "Tenho aqui um cliente, cria um orçamento para este trabalho",
+    example: "I have a client here, create a quote for this job",    
   },
   {
     industry: "Travel Agencies",
-    challenge: "Manual research across multiple platforms, time-consuming quote preparation.",
+    challenge: "Manual research across multiple platforms, time-consuming quote preparation.",                                                                  
     solution: [
       "AI receives email with travel request",
       "Automatically searches multiple booking platforms",
@@ -29,11 +29,11 @@ const useCases = [
       "Prepares complete quote with best options",
     ],
     result: "User validates and sends while continuing other tasks",
-    example: "Para esta viagem, cria um orçamento",
+    example: "For this trip, create a quote",
   },
   {
     industry: "Recruitment Agencies",
-    challenge: "Manual candidate matching, repetitive message writing, time-consuming process.",
+    challenge: "Manual candidate matching, repetitive message writing, time-consuming process.",                                                                
     solution: [
       "User creates job opportunity",
       "AI automatically searches database for matching candidates",
@@ -41,23 +41,23 @@ const useCases = [
       "Generates LinkedIn messages ready to send",
     ],
     result: "User validates and approves bulk sending",
-    example: "Escreve uma mensagem para este candidato a dizer que temos esta oferta",
+    example: "Write a message to this candidate saying we have this opportunity",                                                                          
   },
   {
     industry: "Call Centers & Customer Support",
-    challenge: "Agents need to search for information while on calls, causing hold times and delays.",
+    challenge: "Agents need to search for information while on calls, causing hold times and delays.",                                                          
     solution: [
       "Real-time AI assistant listens to conversation",
       "Automatically researches relevant information",
       "Provides instant answers to agent's questions",
       "Searches knowledge base, policies, and systems",
     ],
-    result: "Delivers information in real-time without interrupting call",
+    result: "Delivers information in real-time without interrupting call",      
     example: "Agent receives instant answer while on call",
   },
   {
     industry: "Law Firms",
-    challenge: "Contract analysis and document review takes hours, delaying client responses.",
+    challenge: "Contract analysis and document review takes hours, delaying client responses.",                                                                 
     solution: [
       "AI analyzes contracts and legal documents",
       "Identifies critical points, risks, and clauses",
@@ -65,11 +65,11 @@ const useCases = [
       "Prepares draft responses for client communication",
     ],
     result: "User reviews and approves before sending",
-    example: "Analisa este contrato e prepara um resumo dos pontos críticos",
+    example: "Analyze this contract and prepare a summary of critical points",  
   },
   {
     industry: "Medical Clinics",
-    challenge: "Scheduling and patient management requires multiple system interactions.",
+    challenge: "Scheduling and patient management requires multiple system interactions.",                                                                      
     solution: [
       "AI analyzes patient history and preferences",
       "Suggests optimal appointment times",
@@ -77,11 +77,11 @@ const useCases = [
       "Automatically updates records and schedules",
     ],
     result: "Generates follow-up reminders",
-    example: "Agenda uma consulta para este paciente com base no histórico",
+    example: "Schedule an appointment for this patient based on their history",   
   },
   {
     industry: "Restaurants & Catering",
-    challenge: "Creating custom menus and event proposals is time-consuming.",
+    challenge: "Creating custom menus and event proposals is time-consuming.",  
     solution: [
       "AI analyzes event requirements and preferences",
       "Generates personalized menu suggestions",
@@ -89,11 +89,11 @@ const useCases = [
       "Prepares complete proposals with dietary restrictions",
     ],
     result: "User validates and sends",
-    example: "Cria um menu personalizado para este evento com base nas preferências",
+    example: "Create a personalized menu for this event based on preferences",                                                                          
   },
   {
     industry: "Real Estate Agencies",
-    challenge: "Finding matching properties and preparing personalized messages for each client.",
+    challenge: "Finding matching properties and preparing personalized messages for each client.",                                                              
     solution: [
       "AI searches property database based on client criteria",
       "Matches properties with client preferences",
@@ -101,11 +101,11 @@ const useCases = [
       "Prepares comparison tables and recommendations",
     ],
     result: "User validates and sends",
-    example: "Encontra propriedades que correspondem a estes critérios e prepara mensagens",
+    example: "Find properties that match these criteria and prepare messages",                                                                   
   },
   {
     industry: "E-commerce & Online Retail",
-    challenge: "Handling refund requests, customer inquiries, and order management manually.",
+    challenge: "Handling refund requests, customer inquiries, and order management manually.",                                                                  
     solution: [
       "AI analyzes refund requests and order history",
       "Checks policies and generates appropriate responses",
@@ -113,11 +113,11 @@ const useCases = [
       "Handles customer inquiries automatically",
     ],
     result: "User reviews and approves",
-    example: "Analisa este pedido de reembolso e prepara a resposta",
+    example: "Analyze this refund request and prepare a response",
   },
   {
     industry: "Accounting Firms",
-    challenge: "Preparing tax documents, financial reports, and client communications takes significant time.",
+    challenge: "Preparing tax documents, financial reports, and client communications takes significant time.",                                                 
     solution: [
       "AI analyzes financial data and transactions",
       "Generates tax reports and summaries",
@@ -125,11 +125,11 @@ const useCases = [
       "Identifies discrepancies and highlights important points",
     ],
     result: "User validates and sends",
-    example: "Prepara o relatório fiscal para este cliente e explica as principais alterações",
+    example: "Prepare the tax report for this client and explain the main changes",                                                              
   },
   {
     industry: "Marketing Agencies",
-    challenge: "Creating content, managing campaigns, and preparing client reports across multiple platforms.",
+    challenge: "Creating content, managing campaigns, and preparing client reports across multiple platforms.",                                                 
     solution: [
       "AI generates content ideas based on client briefs",
       "Creates social media posts and ad copy",
@@ -137,11 +137,11 @@ const useCases = [
       "Schedules content across platforms",
     ],
     result: "User reviews and approves",
-    example: "Cria 10 posts para Instagram para este cliente sobre [tema]",
+    example: "Create 10 Instagram posts for this client about [topic]",     
   },
   {
     industry: "Event Management Companies",
-    challenge: "Coordinating vendors, managing timelines, and preparing event proposals.",
+    challenge: "Coordinating vendors, managing timelines, and preparing event proposals.",                                                                      
     solution: [
       "AI analyzes event requirements and budget",
       "Suggests vendors and suppliers",
@@ -149,11 +149,11 @@ const useCases = [
       "Prepares complete event proposals",
     ],
     result: "User validates and sends",
-    example: "Prepara uma proposta completa para este evento com fornecedores e timeline",
+    example: "Prepare a complete proposal for this event with vendors and timeline",                                                                      
   },
   {
     industry: "Educational Institutions",
-    challenge: "Managing student communications, scheduling, and administrative tasks.",
+    challenge: "Managing student communications, scheduling, and administrative tasks.",                                                                        
     solution: [
       "AI handles student inquiries and scheduling",
       "Generates personalized communication for parents",
@@ -161,11 +161,11 @@ const useCases = [
       "Creates reports and summaries automatically",
     ],
     result: "User validates and sends",
-    example: "Envia uma mensagem aos pais sobre o progresso do aluno [nome]",
+    example: "Send a message to parents about student [name]'s progress",   
   },
   {
     industry: "Logistics & Transportation",
-    challenge: "Route optimization, delivery scheduling, and customer communication.",
+    challenge: "Route optimization, delivery scheduling, and customer communication.",                                                                          
     solution: [
       "AI optimizes delivery routes based on locations",
       "Calculates delivery times and costs",
@@ -173,11 +173,11 @@ const useCases = [
       "Handles tracking inquiries and updates",
     ],
     result: "User reviews and approves",
-    example: "Otimiza as rotas para estas 20 entregas e notifica os clientes",
+    example: "Optimize routes for these 20 deliveries and notify customers",  
   },
   {
     industry: "Maintenance & Technical Services",
-    challenge: "Scheduling appointments, preparing quotes, and managing service requests.",
+    challenge: "Scheduling appointments, preparing quotes, and managing service requests.",                                                                     
     solution: [
       "AI analyzes service requests and urgency",
       "Schedules technicians based on availability and location",
@@ -185,11 +185,11 @@ const useCases = [
       "Prepares customer communication and reminders",
     ],
     result: "User validates and sends",
-    example: "Prepara um orçamento para esta reparação e agenda técnico",
+    example: "Prepare a quote for this repair and schedule a technician",   
   },
   {
     industry: "Consulting Firms",
-    challenge: "Preparing proposals, analyzing client needs, and generating reports.",
+    challenge: "Preparing proposals, analyzing client needs, and generating reports.",                                                                          
     solution: [
       "AI analyzes client requirements and industry data",
       "Generates proposal structures and recommendations",
@@ -197,11 +197,11 @@ const useCases = [
       "Creates presentation materials automatically",
     ],
     result: "User reviews and customizes",
-    example: "Prepara uma proposta de consultoria para este cliente sobre [área]",
+    example: "Prepare a consulting proposal for this client about [area]",                                                                             
   },
   {
     industry: "Architecture & Construction",
-    challenge: "Preparing project quotes, managing suppliers, and client communication.",
+    challenge: "Preparing project quotes, managing suppliers, and client communication.",                                                                       
     solution: [
       "AI analyzes project requirements and specifications",
       "Calculates material costs and labor estimates",
@@ -209,11 +209,11 @@ const useCases = [
       "Prepares project timelines and milestones",
     ],
     result: "User validates and sends",
-    example: "Prepara um orçamento completo para este projeto de construção",
+    example: "Prepare a complete quote for this construction project",
   },
   {
     industry: "Beauty Salons & Spas",
-    challenge: "Managing appointments, client preferences, and service reminders manually.",
+    challenge: "Managing appointments, client preferences, and service reminders manually.",                                                                    
     solution: [
       "AI analyzes client history and preferences",
       "Suggests optimal appointment times",
@@ -221,11 +221,11 @@ const useCases = [
       "Prepares service recommendations based on history",
     ],
     result: "User validates and sends",
-    example: "Agenda um tratamento para este cliente e envia lembrete personalizado",
+    example: "Schedule a treatment for this client and send personalized reminder",                                                                           
   },
   {
     industry: "Hotels & Hospitality",
-    challenge: "Managing reservations, special requests, and guest communication across multiple channels.",
+    challenge: "Managing reservations, special requests, and guest communication across multiple channels.",                                                    
     solution: [
       "AI monitors booking requests from multiple platforms",
       "Matches guest preferences with available rooms",
@@ -233,11 +233,11 @@ const useCases = [
       "Generates personalized welcome messages",
     ],
     result: "User reviews and approves",
-    example: "Prepara tudo para este hóspede: quarto, preferências, e mensagem de boas-vindas",
+    example: "Prepare everything for this guest: room, preferences, and welcome message",                                                               
   },
   {
     industry: "Insurance Companies",
-    challenge: "Analyzing claims, preparing quotes, and managing customer communications.",
+    challenge: "Analyzing claims, preparing quotes, and managing customer communications.",                                                                     
     solution: [
       "AI analyzes claim documents and photos",
       "Generates quotes based on risk assessment",
@@ -245,11 +245,11 @@ const useCases = [
       "Handles customer inquiries automatically",
     ],
     result: "User reviews and approves",
-    example: "Analisa este sinistro e prepara a resposta ao cliente",
+    example: "Analyze this claim and prepare a response to the customer",
   },
   {
     industry: "Automotive Dealerships",
-    challenge: "Managing vehicle sales, service appointments, and customer follow-ups.",
+    challenge: "Managing vehicle sales, service appointments, and customer follow-ups.",                                                                        
     solution: [
       "AI matches customer preferences with inventory",
       "Schedules service appointments based on vehicle history",
@@ -257,11 +257,11 @@ const useCases = [
       "Prepares financing options and quotes",
     ],
     result: "User validates and sends",
-    example: "Encontra veículos que correspondem às preferências deste cliente e prepara mensagem",
+    example: "Find vehicles that match this customer's preferences and prepare a message",                                                          
   },
   {
     industry: "Fitness & Gyms",
-    challenge: "Managing memberships, class schedules, and personalized training plans.",
+    challenge: "Managing memberships, class schedules, and personalized training plans.",                                                                       
     solution: [
       "AI analyzes member goals and progress",
       "Suggests optimal class schedules",
@@ -269,11 +269,11 @@ const useCases = [
       "Prepares communication for renewals and reminders",
     ],
     result: "User validates and sends",
-    example: "Cria um plano de treino personalizado para este membro com base no progresso",
+    example: "Create a personalized workout plan for this member based on their progress",                                                                    
   },
   {
     industry: "Photography Studios",
-    challenge: "Preparing quotes, managing bookings, and delivering photo galleries.",
+    challenge: "Preparing quotes, managing bookings, and delivering photo galleries.",                                                                          
     solution: [
       "AI analyzes event requirements and package needs",
       "Generates quotes based on location, duration, and deliverables",
@@ -281,11 +281,11 @@ const useCases = [
       "Prepares delivery timelines and client communication",
     ],
     result: "User validates and sends",
-    example: "Prepara um orçamento para este casamento e agenda fotógrafo",
+    example: "Prepare a quote for this wedding and schedule a photographer",   
   },
   {
     industry: "IT Support & Managed Services",
-    challenge: "Managing tickets, resolving issues, and communicating with clients.",
+    challenge: "Managing tickets, resolving issues, and communicating with clients.",                                                                           
     solution: [
       "AI analyzes support tickets and categorizes issues",
       "Suggests solutions based on knowledge base",
@@ -293,11 +293,11 @@ const useCases = [
       "Escalates complex issues automatically",
     ],
     result: "User reviews and approves",
-    example: "Resolve este ticket e prepara resposta para o cliente",
+    example: "Resolve this ticket and prepare a response for the client",
   },
   {
     industry: "Property Management",
-    challenge: "Managing tenants, maintenance requests, and lease communications.",
+    challenge: "Managing tenants, maintenance requests, and lease communications.",                                                                             
     solution: [
       "AI analyzes maintenance requests and urgency",
       "Schedules contractors based on availability",
@@ -305,11 +305,11 @@ const useCases = [
       "Prepares tenant notices and updates",
     ],
     result: "User validates and sends",
-    example: "Resolve este pedido de manutenção e notifica o inquilino",
+    example: "Resolve this maintenance request and notify the tenant",      
   },
   {
     industry: "Cleaning Services",
-    challenge: "Scheduling teams, preparing quotes, and managing client communications.",
+    challenge: "Scheduling teams, preparing quotes, and managing client communications.",                                                                       
     solution: [
       "AI analyzes property size and requirements",
       "Calculates quotes based on frequency and scope",
@@ -317,11 +317,11 @@ const useCases = [
       "Generates client confirmations and reminders",
     ],
     result: "User validates and sends",
-    example: "Prepara orçamento para esta limpeza e agenda equipa",
+    example: "Prepare a quote for this cleaning service and schedule the team",
   },
   {
     industry: "Freelancers & Independent Consultants",
-    challenge: "Managing projects, invoicing, and client communications across multiple clients.",
+    challenge: "Managing projects, invoicing, and client communications across multiple clients.",                                                              
     solution: [
       "AI tracks project timelines and deliverables",
       "Generates invoices automatically based on hours/work",
@@ -329,11 +329,11 @@ const useCases = [
       "Sends payment reminders and follow-ups",
     ],
     result: "User reviews and approves",
-    example: "Gera fatura para este projeto e envia ao cliente",
+    example: "Generate an invoice for this project and send it to the client",
   },
   {
     industry: "Wholesale & Distribution",
-    challenge: "Managing orders, inventory, and customer communications.",
+    challenge: "Managing orders, inventory, and customer communications.",      
     solution: [
       "AI analyzes order patterns and forecasts demand",
       "Generates quotes based on volume and pricing tiers",
@@ -341,7 +341,7 @@ const useCases = [
       "Handles customer inquiries automatically",
     ],
     result: "User validates and sends",
-    example: "Prepara orçamento para este pedido em volume e confirma disponibilidade",
+    example: "Prepare a quote for this volume order and confirm availability",                                                                        
   },
 ];
 
