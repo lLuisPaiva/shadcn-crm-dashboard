@@ -5,7 +5,7 @@ export interface Translations {
     badge: string;
     title1: string;
     title2: string;
-    description: string;
+    description: string[];
     getStarted: string;
     seePlatforms: string;
     footer: string;
@@ -150,14 +150,18 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     hero: {
-      badge: "Interact Naturally",
-      title1: "TYPEBLE, YOUR",
-      title2: "DIGITAL PARTNER",
-      description:
-        "Interact naturally with your business systems using only human language. Typeble integrates directly into your tools and executes tasks automatically.",
+      badge: "• Interact Naturally",
+      title1: "TIRED OF WASTING TIME",
+      title2: "WITH COMPLEX SYSTEMS?",
+      description: [
+        "Hours filling endless forms.",
+        "Field after field to create a simple quote.",
+        "Repeating the same information over and over in different systems.",
+        "There's a better way to work.",
+      ],
       getStarted: "GET STARTED NOW",
-      seePlatforms: "SEE INTEGRATIONS",
-      footer: "Free Consultation • Simple Implementation • Continuous Evolution",
+      seePlatforms: "SEE HOW IT WORKS",
+      footer: "No Complex Training • Speak Naturally • Instant Results",
       stats: {
         integrations: "System Integrations",
         companies: "Satisfied Companies",
@@ -349,14 +353,18 @@ export const translations: Record<Language, Translations> = {
   },
   pt: {
     hero: {
-      badge: "Interaja Naturalmente",
-      title1: "TYPEBLE, O SEU ",
-      title2: "PARCEIRO DIGITAL",
-      description:
-        "Interaja de forma natural com os seus sistemas empresariais, utilizando apenas a linguagem humana. O Typeble integra-se diretamente nas suas ferramentas e executa tarefas automaticamente.",
+      badge: "• Interaja Naturalmente",
+      title1: "CANSADO DE PERDER TEMPO",
+      title2: "COM SISTEMAS COMPLICADOS?",
+      description: [
+        "Horas a preencher formulários intermináveis.",
+        "Campos atrás de campos para criar um simples orçamento.",
+        "Repetir a mesma informação vezes sem conta em diferentes sistemas.",
+        "Há uma forma melhor de trabalhar.",
+      ],
       getStarted: "COMEÇAR AGORA",
-      seePlatforms: "VER INTEGRAÇÕES",
-      footer: "Consulta Gratuita • Implementação Simples • Evolução Contínua",
+      seePlatforms: "VER COMO FUNCIONA",
+      footer: "Sem Formação Complexa • Fale Naturalmente • Resultados Imediatos",
       stats: {
         integrations: "Integrações de Sistemas",
         companies: "Empresas Satisfeitas",
@@ -548,14 +556,18 @@ export const translations: Record<Language, Translations> = {
   },
   da: {
     hero: {
-      badge: "Interager Naturligt",
-      title1: "TYPEBLE, DIN",
-      title2: "DIGITALE PARTNER",
-      description:
-        "Interager naturligt med dine forretningssystemer ved kun at bruge menneskesprog. Typeble integrerer direkte i dine værktøjer og udfører opgaver automatisk.",
+      badge: "• Interager Naturligt",
+      title1: "TRÆT AF AT SPILDE TID",
+      title2: "MED KOMPLEKSE SYSTEMER?",
+      description: [
+        "Timer brugt på at udfylde endeløse formularer.",
+        "Felt efter felt for at oprette et simpelt tilbud.",
+        "At gentage de samme oplysninger igen og igen i forskellige systemer.",
+        "Der er en bedre måde at arbejde på.",
+      ],
       getStarted: "KOM I GANG NU",
-      seePlatforms: "SE INTEGRATIONER",
-      footer: "Gratis Konsultation • Simpel Implementering • Kontinuerlig Udvikling",
+      seePlatforms: "SE HVORDAN DET VIRKER",
+      footer: "Ingen Kompleks Træning • Tal Naturligt • Øjeblikkelige Resultater",
       stats: {
         integrations: "Systemintegrationer",
         companies: "Tilfredse Virksomheder",

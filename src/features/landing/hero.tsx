@@ -119,9 +119,22 @@ export function Hero() {
 
           <HeroTitle title1={t.hero.title1} title2={t.hero.title2} />
 
-          <p className="text-muted-foreground mt-8 max-w-2xl text-center text-lg">
-            {t.hero.description}
-          </p>
+          <div className="text-muted-foreground mt-8 max-w-4xl text-center text-lg">
+            {t.hero.description.map((sentence, index) => {
+              const isLast = index === t.hero.description.length - 1;
+              return (
+                <p
+                  key={index}
+                  className={cn(
+                    "block",
+                    isLast && "text-foreground mt-2 text-xl font-semibold"
+                  )}
+                >
+                  {sentence}
+                </p>
+              );
+            })}
+          </div>
 
           <div className="relative mt-12 flex flex-col gap-5 sm:flex-row sm:gap-6">
             {/* Decorative elements around buttons */}

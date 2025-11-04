@@ -3,7 +3,7 @@
 // External dependencies
 import * as React from "react";
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 
 // Internal components
 import { NavMain } from "@/features/dashboard/components/sidebar/nav-main";
@@ -53,12 +53,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 className="hover:bg-transparent"
                 aria-label="Go to dashboard home"
               >
-                <div
-                  className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"
-                  aria-hidden="true"
-                >
-                  <Zap className="size-4" />
-                </div>
+                <Image
+                  src="/images/logo.png"
+                  alt="Typeble"
+                  width={100}
+                  height={28}
+                  className="h-7 w-auto"
+                  priority
+                />
+                
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Typeble</span>
                   <span className="truncate text-xs">Enterprise</span>

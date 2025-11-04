@@ -2,8 +2,10 @@
 
 // External imports
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
-import { Menu, Zap, Globe } from "lucide-react";
+import { Menu, Globe } from "lucide-react";
+import { useTheme } from "next-themes";
 
 // Internal imports
 import { Button } from "@/components/ui/button";
@@ -95,6 +97,7 @@ const LanguageSelector = () => {
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const { resolvedTheme } = useTheme();
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -121,9 +124,16 @@ export function Header() {
                 aria-label="Typeble homepage"
               >
                 <div className="flex items-center gap-2">
-                  <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full">
-                    <Zap className="text-primary h-4 w-4" aria-hidden="true" />
-                  </div>
+                  {/* <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"> */}
+                    <Image
+                      src={resolvedTheme === "dark" ? "/images/logo-gold.png" : "/images/logo.png"}
+                      alt="Typeble"
+                      width={150}
+                      height={40}
+                      className="h-10 w-auto"
+                      priority
+                    />
+                  {/* </div> */}
                   <span className="text-lg font-bold tracking-tight">
                     Typeble
                   </span>

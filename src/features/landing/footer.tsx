@@ -2,7 +2,7 @@
 
 // External imports
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 
 // Internal imports
 import { XIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
@@ -144,12 +144,13 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-12">
           <div className="space-y-8">
             <div className="flex items-center">
-              <div
-                className="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-lg"
-                aria-hidden="true"
-              >
-                <Zap className="text-primary h-6 w-6" />
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="Typeble"
+                width={140}
+                height={38}
+                className="h-9 w-auto"
+              />
               <span className="ml-4 text-xl font-bold tracking-tight">
                 Typeble
               </span>
