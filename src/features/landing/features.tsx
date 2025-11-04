@@ -29,7 +29,7 @@ const SectionTitle = ({
 }) => {
   return (
     <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-4xl">
+      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-2xl md:text-3xl lg:text-4xl">
         <span className="relative">
           {title.split(" ").map((word, i) => (
             <span key={i} className={i === 1 ? "text-primary" : ""}>
@@ -62,10 +62,10 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
         >
           {feature.icon}
         </div>
-        <CardTitle className="mb-1 text-xl font-semibold tracking-tight">
+        <CardTitle className="mb-1 text-xl font-semibold tracking-tight sm:text-lg md:text-xl">
           {feature.title}
         </CardTitle>
-        <p className="text-muted-foreground">{feature.description}</p>
+        <p className="text-muted-foreground text-base">{feature.description}</p>
       </div>
     </Card>
   );
@@ -163,29 +163,29 @@ export function Features() {
             >
               <BrainCircuit className="text-primary h-10 w-10 md:h-12 md:w-12" />
             </div>
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold tracking-tight">
-                {t.features.highlight.title}
-              </h3>
-              <p className="text-muted-foreground mt-4 text-lg">
-                {t.features.highlight.description}
-              </p>
+                         <div className="flex-1">
+                                                               <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
+                   {t.features.highlight.title}
+                 </h3>
+                 <p className="text-muted-foreground mt-4 text-base sm:text-lg">
+                   {t.features.highlight.description}
+                 </p>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                {t.features.highlight.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <span
-                      className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
-                      aria-hidden="true"
-                    >
-                      <Zap className="text-primary h-4 w-4" />
-                    </span>
-                    <span className="text-sm font-medium">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  {t.features.highlight.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <span
+                        className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
+                        aria-hidden="true"
+                      >
+                        <Zap className="text-primary h-4 w-4" />
+                      </span>
+                                           <span className="text-base font-medium">
+                         {feature}
+                       </span>
+                    </div>
+                  ))}
+                </div>
             </div>
           </div>
         </div>

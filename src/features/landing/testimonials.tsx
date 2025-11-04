@@ -20,7 +20,7 @@ const SectionTitle = ({
 }) => {
   return (
     <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-4xl">
+      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-2xl md:text-3xl lg:text-4xl">
         <span className="relative">{title}</span>
       </h2>
       <p className="text-muted-foreground mt-4 max-w-2xl text-center text-lg">
@@ -59,11 +59,11 @@ const TestimonialCard = ({
             </div>
           </div>
 
-          <p className="text-foreground text-lg">
-            <span aria-hidden="true">&ldquo;</span>
-            <span>{testimonial.quote}</span>
-            <span aria-hidden="true">&ldquo;</span>
-          </p>
+                                           <p className="text-foreground text-base sm:text-base md:text-lg">
+             <span aria-hidden="true">&ldquo;</span>
+             <span>{testimonial.quote}</span>
+             <span aria-hidden="true">&ldquo;</span>
+           </p>
 
           <div className="flex items-center gap-4 border-t pt-5">
             <Avatar className="border-border/50 h-12 w-12 border-2">
@@ -75,14 +75,14 @@ const TestimonialCard = ({
                 {testimonial.author.charAt(0)}
               </AvatarFallback>
             </Avatar>
-            <div>
-              <div className="font-semibold tracking-tight">
-                {testimonial.author}
-              </div>
-              <div className="text-muted-foreground text-sm">
-                {testimonial.role}
-              </div>
-            </div>
+                         <div>
+                                                             <div className="text-base font-semibold tracking-tight">
+                   {testimonial.author}
+                 </div>
+                 <div className="text-muted-foreground text-base">
+                   {testimonial.role}
+                 </div>
+             </div>
           </div>
         </div>
       </CardContent>

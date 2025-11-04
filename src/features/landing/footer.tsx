@@ -11,8 +11,8 @@ import { useLanguage } from "@/lib/i18n/context";
 /**
  * FooterHeading component for consistent section headings
  */
-const FooterHeading = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="text-foreground text-sm font-semibold tracking-wide uppercase">
+const FooterHeading = ({ children }: { children: React.ReactNode }) => (        
+  <h3 className="text-foreground text-base font-semibold tracking-wide uppercase">
     {children}
   </h3>
 );
@@ -29,7 +29,7 @@ const FooterLink = ({
 }) => (
   <Link
     href={href}
-    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+    className="text-muted-foreground hover:text-foreground text-base transition-colors duration-200"                                                                      
   >
     {children}
   </Link>
@@ -155,7 +155,7 @@ export function Footer() {
                 Typeble
               </span>
             </div>
-            <p className="text-muted-foreground text-base">
+            <p className="text-muted-foreground text-lg">
               {t.footer.description}
             </p>
             <div className="flex space-x-5">
@@ -229,7 +229,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-border/50 mt-12 border-t pt-8">
-          <p className="text-muted-foreground text-center text-sm">
+          <p className="text-muted-foreground text-center text-base">
             {t.footer.copyright}
           </p>
         </div>

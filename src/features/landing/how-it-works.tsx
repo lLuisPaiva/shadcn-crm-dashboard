@@ -57,17 +57,17 @@ export function HowItWorks() {
       ></div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <h2
-            id="how-it-works-heading"
-            className="text-3xl font-bold tracking-tight uppercase sm:text-4xl"
-          >
-            {t.howItWorks.title}
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl text-center text-lg">
-            {t.howItWorks.subtitle}
-          </p>
-        </div>
+                                 <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
+           <h2
+             id="how-it-works-heading"
+             className="text-3xl font-bold tracking-tight uppercase sm:text-2xl md:text-3xl lg:text-4xl" 
+           >
+             {t.howItWorks.title}
+           </h2>
+                       <p className="text-muted-foreground mt-4 max-w-2xl text-center text-lg">                                                                              
+              {t.howItWorks.subtitle}
+            </p>
+         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => {
@@ -86,8 +86,8 @@ export function HowItWorks() {
                       <Icon className="text-primary h-5 w-5" />
                     </div>
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
+                                    <h3 className="mb-2 text-xl font-semibold sm:text-lg">{step.title}</h3>  
+                  <p className="text-muted-foreground text-base">{step.description}</p>
                 </CardContent>
               </Card>
             );

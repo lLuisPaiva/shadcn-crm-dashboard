@@ -27,7 +27,7 @@ const SectionTitle = ({
 }) => {
   return (
     <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-4xl">
+      <h2 className="text-3xl font-bold tracking-tight uppercase sm:text-2xl md:text-3xl lg:text-4xl">
         <span className="relative">{title}</span>
       </h2>
       <p className="text-muted-foreground mt-4 max-w-2xl text-center text-lg">
@@ -70,14 +70,14 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
               {tier.popular && (
                 <Sparkles className="text-primary h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               )}
-              <h3 className="text-lg sm:text-xl font-bold tracking-tight">{tier.name}</h3>
+              <h3 className="text-xl font-bold tracking-tight sm:text-xl">{tier.name}</h3>
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="text-3xl sm:text-4xl font-bold">{tier.price}</span>
             </div>
           </div>
         </CardTitle>
-        <p className="text-muted-foreground mt-1.5 text-sm">{tier.description}</p>
+        <p className="text-muted-foreground mt-1.5 text-base">{tier.description}</p>
       </CardHeader>
       <CardContent className="flex-1 p-3 sm:p-4 pt-0">
         <ul className="space-y-1.5" aria-label={`Features for ${tier.name} plan`}>
@@ -89,7 +89,7 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
               >
                 <Check className="text-primary h-2.5 w-2.5" />
               </div>
-              <span className="text-xs sm:text-sm leading-tight">{feature}</span>
+              <span className="text-base leading-tight">{feature}</span>
             </li>
           ))}
         </ul>
@@ -97,7 +97,7 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
       <CardFooter className="p-3 sm:p-4 pt-0">
         <Button
           className={cn(
-            "h-9 sm:h-10 w-full font-semibold tracking-wide text-sm sm:text-base",
+            "h-9 sm:h-10 w-full font-semibold tracking-wide text-base sm:text-base md:text-lg",
             tier.name === "Enterprise" ? "gap-2" : "",
           )}
           size="lg"
@@ -180,14 +180,14 @@ export function Pricing() {
 
         {/* Consultation section */}
         <div className="border-border/50 bg-background/50 mt-12 sm:mt-16 rounded-xl border p-6 sm:p-8 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight" id="custom-plan">
+          <h3 className="text-xl font-bold tracking-tight sm:text-xl md:text-2xl" id="custom-plan">
             {t.pricing.consultation.title}
           </h3>
-          <p className="text-muted-foreground mx-auto mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl">
+          <p className="text-muted-foreground mx-auto mt-3 sm:mt-4 text-base max-w-2xl">
             {t.pricing.consultation.description}
           </p>
           <Button
-            className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-sm sm:text-base"
+            className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-base sm:text-base md:text-lg"
             size="lg"
             variant="outline"
           >

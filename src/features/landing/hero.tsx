@@ -15,11 +15,11 @@ import { useLanguage } from "@/lib/i18n/context";
 const HeroTitle = ({ title1, title2 }: { title1: string; title2: string }) => {
   return (
     <div className="relative">
-      <h1 className="inline-block max-w-6xl leading-none font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-        <div className="relative mb-3 pb-2 text-center text-4xl sm:text-5xl md:mb-5 md:text-6xl">
+      <h1 className="inline-block max-w-6xl leading-none font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        <div className="relative mb-3 pb-2 text-center text-3xl sm:text-4xl md:mb-5 md:text-5xl">
           <span className="inline-block">{title1}</span>
         </div>
-        <div className="mt-1 block text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="mt-1 block text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="bg-primary text-primary-foreground relative inline-block px-4 py-1">
             {title2}
           </span>
@@ -62,7 +62,7 @@ const CTAButton = ({
   icon?: React.ReactNode;
 }) => {
   const buttonClass = cn(
-    "h-16 px-8 text-base font-semibold tracking-wide uppercase sm:text-lg",
+    "h-16 px-8 text-base font-semibold tracking-wide uppercase sm:text-base md:text-lg",
     variant === "outline" && "hover:bg-background/5 border-2",
   );
 

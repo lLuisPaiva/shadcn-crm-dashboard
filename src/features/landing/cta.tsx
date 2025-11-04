@@ -25,7 +25,7 @@ const CTAButton = ({
   icon?: React.ReactNode;
 }) => {
   const buttonClass = cn(
-    "h-16 px-8 text-base font-semibold tracking-wide uppercase sm:text-lg",
+    "h-16 px-8 text-base font-semibold tracking-wide uppercase sm:text-base md:text-lg",
     variant === "outline" && "hover:bg-background/5 border-2",
   );
 
@@ -65,12 +65,12 @@ export function CTA() {
           <div className="mx-auto max-w-2xl lg:max-w-4xl">
             <div className="border-border/50 bg-background/80 rounded-xl border p-8 sm:p-12 lg:p-16 shadow-lg backdrop-blur-sm">
               <div className="mx-auto max-w-xl lg:max-w-none">
-                <h2 id="cta-heading" className="text-center text-2xl font-bold tracking-tight uppercase sm:text-3xl lg:text-4xl">
-                  {t.cta.title}
-                </h2>
-                <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-center text-lg">
-                  {t.cta.description}
-                </p>
+                                                                   <h2 id="cta-heading" className="text-center text-3xl font-bold tracking-tight uppercase sm:text-xl md:text-2xl lg:text-3xl">
+                   {t.cta.title}
+                 </h2>
+                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-center text-lg">
+                   {t.cta.description}
+                 </p>
                 <div className="relative mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-6">
                   {/* Decorative elements around buttons */}
                   <div className="border-primary/30 absolute -top-4 -left-4 h-4 w-4 border-t-2 border-l-2" aria-hidden="true"></div>
