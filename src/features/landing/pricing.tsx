@@ -63,41 +63,41 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
           </div>
         </div>
       )}
-      <CardHeader className={cn("p-6", tier.popular ? "bg-primary/5" : "")}>
+      <CardHeader className={cn("p-3 sm:p-4", tier.popular ? "bg-primary/5" : "")}>
         <CardTitle>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2">
               {tier.popular && (
-                <Sparkles className="text-primary h-5 w-5" aria-hidden="true" />
+                <Sparkles className="text-primary h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               )}
-              <h3 className="text-xl font-bold tracking-tight">{tier.name}</h3>
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight">{tier.name}</h3>
             </div>
-                        <div className="flex items-baseline gap-1.5">
-              <span className="text-4xl font-bold">{tier.price}</span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-3xl sm:text-4xl font-bold">{tier.price}</span>
             </div>
           </div>
         </CardTitle>
-        <p className="text-muted-foreground mt-2">{tier.description}</p>
+        <p className="text-muted-foreground mt-1.5 text-sm">{tier.description}</p>
       </CardHeader>
-      <CardContent className="flex-1 p-6 pt-0">
-        <ul className="space-y-3" aria-label={`Features for ${tier.name} plan`}>
+      <CardContent className="flex-1 p-3 sm:p-4 pt-0">
+        <ul className="space-y-1.5" aria-label={`Features for ${tier.name} plan`}>
           {tier.features.map((feature: string, j: number) => (
-            <li key={j} className="flex items-center gap-2.5">
+            <li key={j} className="flex items-start gap-2">
               <div
-                className="bg-primary/10 flex h-5 w-5 items-center justify-center rounded-full"
+                className="bg-primary/10 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full mt-0.5"
                 aria-hidden="true"
               >
-                <Check className="text-primary h-3 w-3" />
+                <Check className="text-primary h-2.5 w-2.5" />
               </div>
-              <span className="text-sm">{feature}</span>
+              <span className="text-xs sm:text-sm leading-tight">{feature}</span>
             </li>
           ))}
         </ul>
       </CardContent>
-      <CardFooter className="p-6 pt-0">
+      <CardFooter className="p-3 sm:p-4 pt-0">
         <Button
           className={cn(
-            "h-12 w-full font-semibold tracking-wide",
+            "h-9 sm:h-10 w-full font-semibold tracking-wide text-sm sm:text-base",
             tier.name === "Enterprise" ? "gap-2" : "",
           )}
           size="lg"
@@ -166,28 +166,28 @@ export function Pricing() {
         aria-hidden="true"
       ></div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
         <SectionTitle
           title={t.pricing.title}
           subtitle={t.pricing.subtitle}
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {tiersData.map((tier, i) => (
             <PricingCard key={i} tier={tier} index={i} />
           ))}
         </div>
 
         {/* Consultation section */}
-        <div className="border-border/50 bg-background/50 mt-24 rounded-xl border p-8 text-center">
-          <h3 className="text-2xl font-bold tracking-tight" id="custom-plan">
+        <div className="border-border/50 bg-background/50 mt-12 sm:mt-16 rounded-xl border p-6 sm:p-8 text-center">
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight" id="custom-plan">
             {t.pricing.consultation.title}
           </h3>
-          <p className="text-muted-foreground mx-auto mt-4 max-w-md text-lg">
+          <p className="text-muted-foreground mx-auto mt-3 sm:mt-4 text-sm sm:text-base max-w-2xl">
             {t.pricing.consultation.description}
           </p>
           <Button
-            className="mt-8 h-14 px-8 font-semibold tracking-wide"
+            className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-sm sm:text-base"
             size="lg"
             variant="outline"
           >

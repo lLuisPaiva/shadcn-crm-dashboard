@@ -12,7 +12,7 @@ import { Header } from "@/features/landing/header";
 import { Hero } from "@/features/landing/hero";
 import { HowItWorks } from "@/features/landing/how-it-works";
 import { Pricing } from "@/features/landing/pricing";
-import { Testimonials } from "@/features/landing/testimonials";
+// import { Testimonials } from "@/features/landing/testimonials";
 import { LanguageProvider } from "@/lib/i18n/context";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <Pricing />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <CTA />
         <Footer />
       </main>

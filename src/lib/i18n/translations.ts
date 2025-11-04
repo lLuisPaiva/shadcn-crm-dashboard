@@ -150,159 +150,148 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     hero: {
-      badge: "Work Naturally",
-      title1: "WORK THE WAY",
-      title2: "YOU TALK",
+      badge: "Interact Naturally",
+      title1: "TYPEBLE, YOUR",
+      title2: "DIGITAL PARTNER",
       description:
-        "Work naturally with your existing systems using human language. We integrate directly with your systems and execute actions automatically.",
-      getStarted: "GET STARTED",
-      seePlatforms: "SEE OUR PLATFORMS",
-      footer: "Free consultation • Seamless migration • Constant improvements",
+        "Interact naturally with your business systems using only human language. Typeble integrates directly into your tools and executes tasks automatically.",
+      getStarted: "GET STARTED NOW",
+      seePlatforms: "SEE INTEGRATIONS",
+      footer: "Free Consultation • Simple Implementation • Continuous Evolution",
       stats: {
         integrations: "System Integrations",
-        companies: "Companies Trust Us",
+        companies: "Satisfied Companies",
         actions: "Actions Executed",
       },
     },
     features: {
-      title: "Work The Way You Talk",
+      title: "Talk With Your Systems",
       subtitle:
-        "Work naturally with your systems using human language. We integrate directly and execute actions automatically.",
+        "Work naturally with your systems through human language. Typeble integrates and executes tasks automatically and immediately.",
       items: {
         realIntegration: {
-          title: "Real System Integration",
+          title: "Deep System Integration",
           description:
-            "We integrate directly with your systems and execute actions automatically. When you say 'create a quote,' we create it in your system.",
+            "Typeble integrates directly into your systems and executes actions automatically. When you say 'create a quote', Typeble does it in your management system.",
         },
         workNaturally: {
-          title: "Work Naturally",
+          title: "Intuitive and Natural Interaction",
           description:
-            "Work the way you talk. Describe what you need in natural language, and our platforms execute it instantly in your systems. No complex interfaces to learn.",
+            "Describe what you need in simple language and Typeble executes the task in your systems instantly. Say goodbye to complex interfaces.",
         },
         naturalLanguage: {
-          title: "Natural Language Actions",
+          title: "Human Language Commands",
           description:
-            "Talk to your dashboard naturally. Our platforms understand commands and convert complex workflows into simple chat conversations that execute real actions.",
+            "Talk to your dashboard naturally. Typeble understands complex commands and converts lengthy processes into simple conversations that generate real actions.",
         },
         yourSystems: {
-          title: "Your Systems, Your Language",
+          title: "Your Systems. Your Language.",
           description:
-            "Work with your existing systems using natural language. No need to learn complex interfaces—just talk to your tools the way you'd talk to a colleague.",
+            "Use your existing systems through natural language. Interact with your work tools as if speaking with a colleague.",
         },
         worksWithTools: {
-          title: "Works with Your Tools",
+          title: "Compatibility with Your Tools",
           description:
-            "Integrate with CRM, email, databases, and any other system you use. We connect to your existing tools and work with your current setup.",
+            "Integrate with CRM, email, databases, and any other system. You don't need to change your tools — Typeble integrates directly with your existing ecosystem.",
         },
         instantExecution: {
-          title: "Instant Execution",
+          title: "Immediate Action Execution",
           description:
-            "No waiting, no delays. When you give a command, our platforms execute it immediately in your systems. Real actions, real results, instantly.",
+            "Don't wait. When you give a command, Typeble executes it immediately in your systems. Real actions for instant results.",
         },
       },
       highlight: {
-        title: "WORK THE WAY YOU TALK",
+        title: "TALK WITH YOUR SYSTEMS",
         description:
-          "Work naturally with your existing systems using human language. We integrate directly and execute actions automatically. When you say \"create a quote,\" we create it in your system. Real integration means real actions in your actual tools.",
+          "Interact naturally with your existing business systems. Typeble integrates directly and executes tasks automatically. When you say \"create a quote\", Typeble does it in your management system. Deep integration means concrete actions in your real tools.",
         features: [
-          "Talk naturally, work instantly",
-          "Real system integration",
-          "Automatic action execution",
+          "Speak naturally, work immediately",
+          "Deep and native integration",
+          "Automatic task execution",
         ],
       },
     },
     pricing: {
-      title: "Real Integration & Pricing",
+      title: "Integration and Pricing",
       subtitle:
-        "We connect directly to your systems and execute actions automatically.",
+        "We connect directly to your systems and automate task execution.",
       tiers: {
         migration: {
-          name: "Platform Migration",
-          price: "From $2k",
-          description: "Migrate to platforms that work with natural language",
+          name: "Optimized Migration",
+          price: "From $2,000",
+          description: "Switch to platforms optimized for natural language.",
           features: [
-            "Real system integration (CRM, email, databases)",
-            "Work naturally with human language",
-            "Execute actions automatically",
-            "Multi-device chat access",
-            "Team training & onboarding",
-            "Natural language commands",
-            "3 months support",
+            "Deep system integration",
+            "Text/voice commands",
+            "Automatic task execution",
+            "3 months of Technical Support",
           ],
-          cta: "Get quote",
+          cta: "Request Quote",
         },
         complete: {
-          name: "Complete Platform",
-          price: "From $5k",
-          description: "Complete platform with real system integration",
+          name: "Complete Typeble Platform",
+          price: "From $5,000",
+          description: "Complete platform with total integration into your systems.",
           features: [
-            "Real system integration (all your tools)",
-            "Work the way you talk",
-            "Automatic action execution",
-            "Natural language interactions",
+            "Total system integration",
+            "Natural language commands",
             "Intelligent dashboards with chat",
-            "All devices ready",
-            "6 months support",
-            "Constant evolution",
+            "6 months of Technical Support",
           ],
-          cta: "Get quote",
+          cta: "Request Quote",
         },
         enterprise: {
-          name: "Enterprise Solutions",
-          price: "Custom",
-          description: "Large-scale integration for entire organizations",
+          name: "Enterprise Solutions (Enterprise)",
+          price: "Custom Price",
+          description: "Large-scale integration, tailored for large organizations.",
           features: [
-            "Company-wide system integration",
-            "Advanced AI capabilities",
-            "Multi-platform integration",
-            "Real-time action execution",
-            "Dedicated support",
-            "24/7 availability",
-            "SLA guarantee",
-            "Custom development",
+            "Organization-wide integration",
+            "Advanced AI and multi-platform",
+            "Dedicated 24/7 support",
+            "SLA and custom development",
           ],
-          cta: "Contact us",
+          cta: "Contact Us",
         },
       },
       consultation: {
-        title: "Free Consultation",
+        title: "Free Consultation Without Commitment",
         description:
-          "Book a free consultation to see real system integration in action. We'll analyze your platforms and show how we execute actions automatically—no obligation.",
-        cta: "Book Consultation",
+          "Schedule a free consultation to see real system integration in action. We analyze your platforms and demonstrate how we execute tasks automatically — without any commitment.",
+        cta: "Schedule Consultation",
       },
     },
     howItWorks: {
-      title: "How It Works",
+      title: "How Typeble Works",
       subtitle:
-        "Typeble integrates directly with your company's systems. We execute actions automatically.",
+        "Typeble integrates directly into your company's systems. We automate the execution of your daily tasks.",
       learnMore: "Learn More",
       steps: {
         step1: {
-          title: "You Talk",
+          title: "Interact",
           description:
-            "Describe what you need in natural language. No need to learn complex interfaces or navigate through menus.",
+            "Describe what you need in natural language (text or voice). You don't need to learn complex interfaces or navigate through menus.",
         },
         step2: {
-          title: "We Execute",
+          title: "Immediate Action",
           description:
-            "Our AI understands your request and executes it directly in your systems. When you say \"create a quote,\" we create it in your system.",
+            "Typeble understands your request and executes it directly in your systems. When you say 'create a quote', Typeble does it in your management system.",
         },
         step3: {
-          title: "Real Results",
+          title: "Concrete Results",
           description:
-            "Get instant results in your actual tools. Real integration means real actions in your CRM, email, databases, and other systems.",
+            "Get instant results in your real tools. Deep integration means concrete actions in your CRM, email, databases, and other systems.",
         },
         step4: {
           title: "Validate",
-          description: "Validate and approve — it's simple",
+          description: "Validate and approve the result — it's simple.",
         },
       },
       example: {
-        title: "Example",
+        title: "Practical Example",
         description:
-          "Instead of clicking through menus, just describe what you need:",
-        command: '"Cria um orçamento para este cliente"',
-        result: "We create the quote in your system instantly.",
+          "Instead of clicking through multiple menus, just describe what you need:",
+        command: "'Create a quote for this client'",
+        result: "Typeble creates the quote in your system immediately.",
       },
     },
     testimonials: {
@@ -331,28 +320,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     cta: {
-      title: "Ready to Work the Way You Talk?",
+      title: "Ready to Interact Like You Talk?",
       description:
-        "Start working naturally with your systems today. Get a free consultation and see how Typeble integrates with your tools.",
+        "Start working naturally with your systems today. Request a free consultation and see how Typeble integrates into your tools.",
       button: "GET STARTED",
     },
-          footer: {
-        description:
-          "Work naturally with your existing systems using human language.",
-        links: {
-          product: "Product",
-          company: "Company",
-          support: "Support",
-          legal: "Legal",
-        },
-        copyright: "© 2025 Typeble. All rights reserved.",
+    footer: {
+      description:
+        "Interact naturally with your existing systems through human language.",
+      links: {
+        product: "Product",
+        company: "Company",
+        support: "Customer Support",
+        legal: "Legal Information",
       },
+      copyright: "© 2025 Typeble. All rights reserved.",
+    },
     header: {
       nav: {
         features: "Features",
         howItWorks: "How It Works",
         pricing: "Pricing",
-        useCases: "Use Cases",
+        useCases: "Case Studies",
         contact: "Contact",
       },
       cta: "Get Started",
@@ -360,369 +349,347 @@ export const translations: Record<Language, Translations> = {
   },
   pt: {
     hero: {
-      badge: "Trabalhe Naturalmente",
-      title1: "TRABALHE DA FORMA",
-      title2: "QUE FALA",
+      badge: "Interaja Naturalmente",
+      title1: "TYPEBLE, O SEU ",
+      title2: "PARCEIRO DIGITAL",
       description:
-        "Trabalhe naturalmente com os seus sistemas existentes através de linguagem humana. A Typeble integra-se directamente com os seus sistemas e executa acções automaticamente.",
-       getStarted: "COMECE",
-       seePlatforms: "VER AS NOSSAS PLATAFORMAS",
-       footer: "Consulta gratuita • Migração sem problemas • Melhorias constantes",
-       stats: {
-         integrations: "Integrações de Sistemas",
-         companies: "Empresas Confiam em Nós",
-         actions: "Acções Executadas",
-       },
-     },
-             features: {
-      title: "Trabalhe Da Forma Que Fala",
+        "Interaja de forma natural com os seus sistemas empresariais, utilizando apenas a linguagem humana. O Typeble integra-se diretamente nas suas ferramentas e executa tarefas automaticamente.",
+      getStarted: "COMEÇAR AGORA",
+      seePlatforms: "VER INTEGRAÇÕES",
+      footer: "Consulta Gratuita • Implementação Simples • Evolução Contínua",
+      stats: {
+        integrations: "Integrações de Sistemas",
+        companies: "Empresas Satisfeitas",
+        actions: "Ações Executadas",
+      },
+    },
+    features: {
+      title: "Converse Com Os Seus Sistemas",
       subtitle:
-        "Trabalhe naturalmente com os seus sistemas através de linguagem humana. A Typeble integra-se directamente e executa acções automaticamente.",
+        "Trabalhe de forma natural com os seus sistemas através de linguagem humana. O Typeble integra-se e executa tarefas de forma automática e imediata.",
       items: {
         realIntegration: {
-          title: "Integração Real de Sistemas",
+          title: "Integração Profunda de Sistemas",
           description:
-            "A Typeble integra-se directamente com os seus sistemas e executa acções automaticamente. Quando diz 'cria um orçamento', a Typeble cria-o no seu sistema.",
+            "O Typeble integra-se diretamente nos seus sistemas e executa ações de forma automática. Ao dizer 'cria um orçamento', o Typeble fá-lo no seu sistema de gestão.",
         },
         workNaturally: {
-          title: "Trabalhe Naturalmente",
+          title: "Interação Intuitiva e Natural",
           description:
-            "Descreva o que precisa em linguagem natural e a Typeble executa instantaneamente nos seus sistemas. Sem interfaces complexas.",
+            "Descreva o que precisa em linguagem simples e o Typeble executa a tarefa nos seus sistemas, instantaneamente. Diga adeus a interfaces complexas.",
         },
         naturalLanguage: {
-          title: "Acções em Linguagem Natural",
+          title: "Comandos em Linguagem Humana",
           description:
-            "Fale com o seu dashboard naturalmente. A Typeble compreende comandos e converte fluxos complexos em conversas simples que executam acções reais.",
+            "Fale com o seu painel de controlo (dashboard) naturalmente. O Typeble compreende comandos complexos e converte processos morosos em conversas simples que geram ações reais.",
         },
         yourSystems: {
-          title: "Os Seus Sistemas, A Sua Linguagem",
+          title: "Os Seus Sistemas. A Sua Linguagem.",
           description:
-            "Trabalhe com os seus sistemas existentes através de linguagem natural. Fale com as suas ferramentas como falaria com um colega.",
+            "Utilize os seus sistemas existentes através de linguagem natural. Interaja com as suas ferramentas de trabalho como se falasse com um colega.",
         },
         worksWithTools: {
-          title: "Funciona Com As Suas Ferramentas",
+          title: "Compatibilidade com as Suas Ferramentas",
           description:
-            "Integre com CRM, email, bases de dados e qualquer outro sistema. Não necessita de alterar os seus sistemas — a Typeble integra-se directamente com as suas ferramentas existentes.",
+            "Integre com CRM, email, bases de dados e qualquer outro sistema. Não precisa de mudar as suas ferramentas — o Typeble integra-se diretamente com o seu ecossistema existente.",
         },
         instantExecution: {
-          title: "Execução Instantânea",
+          title: "Execução Imediata de Ações",
           description:
-            "Sem esperas. Quando dá um comando, a Typeble executa-o de imediato nos seus sistemas. Acções reais, resultados instantâneos.",
+            "Não espere. Ao dar um comando, o Typeble executa-o de imediato nos seus sistemas. Ações reais para resultados instantâneos.",
         },
       },
       highlight: {
-        title: "TRABALHE DA FORMA QUE FALA",
+        title: "CONVERSE COM OS SEUS SISTEMAS",
         description:
-          "Trabalhe naturalmente com os seus sistemas existentes através de linguagem humana. A Typeble integra-se directamente com os seus sistemas e executa acções automaticamente. Quando diz \"cria um orçamento\", a Typeble cria-o no seu sistema. Integração real significa acções reais nas suas ferramentas reais.",
-         features: [
-           "Fale naturalmente, trabalhe instantaneamente",
-           "Integração real de sistemas",
-           "Execução automática de acções",
-         ],
-       },
+          "Interaja de forma natural com os seus sistemas empresariais existentes. O Typeble integra-se diretamente e executa tarefas automaticamente. Ao dizer \"cria um orçamento\", o Typeble fá-lo no seu sistema de gestão. Integração profunda significa ações concretas nas suas ferramentas reais.",
+        features: [
+          "Fale naturalmente, trabalhe de imediato",
+          "Integração profunda e nativa",
+          "Execução automática de tarefas",
+        ],
+      },
     },
-         pricing: {
-       title: "Integração Real e Preços",
-       subtitle:
-         "Conectamo-nos directamente aos seus sistemas e executamos acções automaticamente.",
+    pricing: {
+      title: "Integração e Preços",
+      subtitle:
+        "Conectamo-nos diretamente aos seus sistemas e automatizamos a execução de tarefas.",
       tiers: {
         migration: {
-          name: "Migração de Plataforma",
-          price: "A partir de 2K€",
-          description: "Migre para plataformas que funcionam com linguagem natural",
-           features: [
-             "Integração real de sistemas (CRM, email, bases de dados)",
-             "Trabalhe naturalmente com linguagem humana",
-             "Execute acções automaticamente",
-             "Acesso ao chat em vários dispositivos",
-             "Formação e integração da equipa",
-             "Comandos em linguagem natural",
-             "Suporte de 3 meses",
-           ],
-           cta: "Solicitar orçamento",
-         },
-        complete: {
-          name: "Plataforma Completa",
-          price: "A partir de 5K€",
-          description: "Plataforma completa com integração real de sistemas",
-           features: [
-             "Integração real de sistemas (todas as suas ferramentas)",
-             "Trabalhe da forma que fala",
-             "Execução automática de acções",
-             "Interacções em linguagem natural",
-             "Dashboards inteligentes com chat",
-             "Pronto para todos os dispositivos",
-             "Suporte de 6 meses",
-             "Evolução constante",
-           ],
-           cta: "Solicitar orçamento",
-         },
-         enterprise: {
-           name: "Soluções Empresariais",
-           price: "Personalizado",
-           description: "Integração em larga escala para organizações inteiras",
-           features: [
-             "Integração de sistemas em toda a empresa",
-             "Capacidades avançadas de IA",
-             "Integração multi-plataforma",
-             "Execução de acções em tempo real",
-             "Suporte dedicado",
-             "Disponibilidade 24/7",
-             "Garantia SLA",
-             "Desenvolvimento personalizado",
-           ],
-           cta: "Contacte-nos",
-         },
-      },
-             consultation: {
-         title: "Consulta Gratuita",
-         description:
-           "Marque uma consulta gratuita para ver a integração real de sistemas em acção. Analisaremos as suas plataformas e mostraremos como executamos acções automaticamente—sem compromisso.",
-         cta: "Marcar Consulta",
-       },
-    },
-      howItWorks: {
-        title: "Como Funciona",
-        subtitle:
-          "O Typeble integra-se directamente com os sistemas da sua empresa. Executamos acções automaticamente.",
-        learnMore: "Saber Mais",
-             steps: {
-         step1: {
-           title: "Fale",
-           description:
-             "Descreva o que precisa em linguagem natural. Não precisa de aprender interfaces complexas ou navegar por menus.",
-         },
-        step2: {
-          title: "Executamos",
-          description:
-            "A Typeble compreende o seu pedido e executa-o directamente nos seus sistemas. Quando diz \"cria um orçamento\", a Typeble cria-o no seu sistema.",
+          name: "Migração Otimizada",
+          price: "A partir de 2.000€",
+          description: "Mude para plataformas otimizadas para linguagem natural.",
+          features: [
+            "Integração profunda de sistemas",
+            "Comandos por texto/voz",
+            "Execução automática de tarefas",
+            "3 meses de Suporte Técnico",
+          ],
+          cta: "Solicitar Orçamento",
         },
-                 step3: {
-          title: "Resultados Reais",
+        complete: {
+          name: "Plataforma Completo Typeble",
+          price: "A partir de 5.000€",
+          description: "Plataforma completa com integração total nos seus sistemas.",
+          features: [
+            "Integração total de sistemas",
+            "Comandos em linguagem natural",
+            "Dashboards inteligentes com chat",
+            "6 meses de Suporte Técnico",
+          ],
+          cta: "Solicitar Orçamento",
+        },
+        enterprise: {
+          name: "Soluções Empresariais (Enterprise)",
+          price: "Preço Personalizado",
+          description: "Integração em larga escala, à medida de grandes organizações.",
+          features: [
+            "Integração em toda a organização",
+            "IA avançada e multi-plataforma",
+            "Suporte dedicado 24/7",
+            "SLA e desenvolvimento personalizado",
+          ],
+          cta: "Contacte-nos",
+        },
+      },
+      consultation: {
+        title: "Consulta Gratuita e Sem Compromisso",
+        description:
+          "Marque uma consulta gratuita para ver a integração real de sistemas em ação. Analisamos as suas plataformas e demonstramos como executamos tarefas automaticamente — sem qualquer compromisso.",
+        cta: "Agendar Consulta",
+      },
+    },
+    howItWorks: {
+      title: "Como Funciona o Typeble",
+      subtitle:
+        "O Typeble integra-se diretamente nos sistemas da sua empresa. Automatizamos a execução das suas tarefas diárias.",
+      learnMore: "Saber Mais",
+      steps: {
+        step1: {
+          title: "Interaja",
           description:
-            "Obtenha resultados instantâneos nas suas ferramentas reais. Integração real significa acções reais no seu CRM, email, bases de dados e outros sistemas.",
+            "Descreva o que precisa em linguagem natural (texto ou voz). Não necessita de preencher interfaces complexas nem navegar por menus.",
+        },
+        step2: {
+          title: "Ação Imediata",
+          description:
+            "O Typeble compreende o seu pedido e executa-o diretamente nos seus sistemas. Ao dizer 'cria um orçamento', o Typeble fá-lo no seu sistema de gestão.",
+        },
+        step3: {
+          title: "Resultados Concretos",
+          description:
+            "Obtenha resultados instantâneos nas suas ferramentas reais. Integração profunda significa ações concretas no seu CRM, email, bases de dados e outros sistemas.",
         },
         step4: {
           title: "Valide",
-          description: "Valide e aprove — é simples",
+          description: "Valide e aprove o resultado — é simples.",
         },
-       },
-            example: {
-          title: "Exemplo",
-          description:
-            "Em vez de clicar através de menus, apenas descreva o que precisa:",
-          command: '"Cria um orçamento para este cliente"',
-          result: "A Typeble cria o orçamento no seu sistema de imediato.",
-        },
+      },
+      example: {
+        title: "Exemplo Prático",
+        description:
+          "Em vez de clicar em vários menus, basta descrever o que precisa:",
+        command: "'Cria um orçamento para este cliente'",
+        result: "O Typeble cria o orçamento no seu sistema de imediato.",
+      },
     },
     testimonials: {
-      title: "O Que Os Nossos Clientes Dizem",
+      title: "O Que Dizem os Nossos Clientes",
       subtitle:
-        "Veja como as empresas estão a trabalhar naturalmente com os seus sistemas usando o Typeble.",
+        "Veja como as empresas estão a trabalhar naturalmente com os seus sistemas, utilizando o Typeble.",
       items: [
-                 {
-           quote:
-             "Costumava perder horas a navegar por interfaces complexas. Agora apenas falo com o sistema naturalmente e acontece instantaneamente. 'Mostra-me as vendas do mês passado' ou 'Cria um relatório para Q3'—feito em segundos, não minutos. É assim que as plataformas devem funcionar.",
-           author: "Sarah Chen",
-           role: "CEO, TechCorp Solutions",
-         },
-         {
-           quote:
-             "Trabalhar com linguagem natural mudou completamente a forma como a nossa equipa trabalha. Em vez de formar pessoas em navegação complexa, elas apenas falam com o sistema naturalmente. Tarefas que costumavam levar vários passos agora levam um pedido simples. Mudança total.",
-           author: "Michael Rodriguez",
-           role: "Gestor de Operações, GrowthX",
-         },
-         {
-           quote:
-             "Agora trabalhamos naturalmente com os nossos sistemas usando linguagem humana. A plataforma compreende-nos, por isso já não lutamos com interfaces complexas. Quer dados? Apenas pergunte. Precisa de criar algo? Descreva. É intuitivo e incrivelmente rápido.",
-           author: "Emma Thompson",
-           role: "Directora de Operações, ScaleUp Inc",
-         },
+        {
+          quote:
+            "Costumava perder horas a navegar por interfaces complexas. Agora basta interagir com o sistema e a tarefa é executada instantaneamente. 'Mostra-me as vendas do mês passado' ou 'Cria um relatório para Q3'—feito em segundos, não minutos. É assim que as plataformas devem funcionar.",
+          author: "Sarah Chen",
+          role: "CEO, TechCorp Solutions",
+        },
+        {
+          quote:
+            "Trabalhar com linguagem natural mudou completamente a forma como a nossa equipa opera. Em vez de formar pessoas em navegação complexa, basta falarem com o sistema. Tarefas que exigiam vários passos agora levam apenas um pedido simples. Uma mudança total.",
+          author: "Michael Rodriguez",
+          role: "Gestor de Operações, GrowthX",
+        },
+        {
+          quote:
+            "Agora interagimos de forma natural com os nossos sistemas usando linguagem humana. A plataforma compreende-nos, por isso já não lutamos com interfaces complicadas. Quer dados? Pergunte. Precisa de criar algo? Descreva. É intuitivo e incrivelmente rápido.",
+          author: "Emma Thompson",
+          role: "Diretora de Operações, ScaleUp Inc",
+        },
       ],
     },
-      cta: {
-        title: "Pronto Para Trabalhar Da Forma Como Fala?",
-        description:
-          "Comece a trabalhar naturalmente com os seus sistemas hoje. Obtenha uma consulta gratuita e veja como o Typeble se integra com as suas ferramentas.",
-        button: "COMECE",
+    cta: {
+      title: "Pronto para trabalhar com o Typeble?",
+      description:
+        "Comece a trabalhar naturalmente com os seus sistemas hoje. Peça uma consulta gratuita e veja como o Typeble se integra nas suas ferramentas.",
+      button: "COMEÇAR",
+    },
+    footer: {
+      description:
+        "Interaja de forma natural com os seus sistemas existentes através de linguagem humana.",
+      links: {
+        product: "Produto",
+        company: "Empresa",
+        support: "Apoio ao Cliente",
+        legal: "Informação Legal",
       },
-              footer: {
-          description:
-            "Trabalhe naturalmente com os seus sistemas existentes através de linguagem humana.",
-        links: {
-          product: "Produto",
-          company: "Empresa",
-          support: "Suporte",
-          legal: "Legal",
-        },
-        copyright: "© 2025 Typeble. Todos os direitos reservados.",
-      },
+      copyright: "© 2025 Typeble. Todos os direitos reservados.",
+    },
     header: {
       nav: {
         features: "Funcionalidades",
         howItWorks: "Como Funciona",
         pricing: "Preços",
-        useCases: "Casos de Uso",
+        useCases: "Casos de Estudo",
         contact: "Contacto",
       },
-             cta: "Comece",
+      cta: "Começar",
     },
   },
   da: {
     hero: {
-      badge: "Arbejd Naturligt",
-      title1: "ARBEJD PÅ DEN MÅDE",
-      title2: "DU TALER",
+      badge: "Interager Naturligt",
+      title1: "TYPEBLE, DIN",
+      title2: "DIGITALE PARTNER",
       description:
-        "Arbejd naturligt med dine eksisterende systemer ved hjælp af menneskesprog. Vi integrerer direkte med dine systemer og udfører handlinger automatisk.",
-      getStarted: "KOM I GANG",
-      seePlatforms: "SE VORES PLATFORMES",
-      footer: "Gratis konsultation • Problemløs migration • Konstante forbedringer",
+        "Interager naturligt med dine forretningssystemer ved kun at bruge menneskesprog. Typeble integrerer direkte i dine værktøjer og udfører opgaver automatisk.",
+      getStarted: "KOM I GANG NU",
+      seePlatforms: "SE INTEGRATIONER",
+      footer: "Gratis Konsultation • Simpel Implementering • Kontinuerlig Udvikling",
       stats: {
         integrations: "Systemintegrationer",
-        companies: "Virksomheder Stoler På Os",
+        companies: "Tilfredse Virksomheder",
         actions: "Handlinger Udført",
       },
     },
     features: {
-      title: "Arbejd På Den Måde Du Taler",
+      title: "Tal Med Dine Systemer",
       subtitle:
-        "Arbejd naturligt med dine systemer ved hjælp af menneskesprog. Vi integrerer direkte og udfører handlinger automatisk.",
+        "Arbejd naturligt med dine systemer gennem menneskesprog. Typeble integrerer og udfører opgaver automatisk og øjeblikkeligt.",
       items: {
         realIntegration: {
-          title: "Rig Es Systemintegration",
+          title: "Dybt Systemintegration",
           description:
-            "Vi integrerer direkte med dine systemer og udfører handlinger automatisk. Når du siger 'opret et tilbud', opretter vi det i dit system.",
+            "Typeble integrerer direkte i dine systemer og udfører handlinger automatisk. Når du siger 'opret et tilbud', gør Typeble det i dit ledelsessystem.",
         },
         workNaturally: {
-          title: "Arbejd Naturligt",
+          title: "Intuitiv og Naturlig Interaktion",
           description:
-            "Arbejd på den måde, du taler. Beskriv hvad du har brug for i naturligt sprog, og vores platforme udfører det øjeblikkeligt i dine systemer. Ingen komplekse grænseflader at lære.",
+            "Beskriv hvad du har brug for i simpelt sprog, og Typeble udfører opgaven i dine systemer øjeblikkeligt. Sig farvel til komplekse grænseflader.",
         },
         naturalLanguage: {
-          title: "Naturligt Sprog Handlinger",
+          title: "Menneskesprogskommandoer",
           description:
-            "Tal til dit dashboard naturligt. Vores platforme forstår kommandoer og konverterer komplekse arbejdsgange til simple chat-samtaler, der udfører rig handlinger.",
+            "Tal til dit dashboard naturligt. Typeble forstår komplekse kommandoer og konverterer langvarige processer til simple samtaler, der genererer rig handlinger.",
         },
         yourSystems: {
-          title: "Dine Systemer, Dit Sprog",
+          title: "Dine Systemer. Dit Sprog.",
           description:
-            "Arbejd med dine eksisterende systemer ved hjælp af naturligt sprog. Ingen grund til at lære komplekse grænseflader—bare tal til dine værktøjer, som du ville tale til en kollega.",
+            "Brug dine eksisterende systemer gennem naturligt sprog. Interager med dine arbejdsværktøjer, som om du taler med en kollega.",
         },
         worksWithTools: {
-          title: "Virker Med Dine Værktøjer",
+          title: "Kompatibilitet Med Dine Værktøjer",
           description:
-            "Integrer med CRM, email, databaser og alle andre systemer, du bruger. Vi forbinder til dine eksisterende værktøjer og arbejder med dit nuværende setup.",
+            "Integrer med CRM, email, databaser og ethvert andet system. Du behøver ikke ændre dine værktøjer — Typeble integrerer direkte med dit eksisterende økosystem.",
         },
         instantExecution: {
-          title: "Øjeblikkelig Udførelse",
+          title: "Øjeblikkelig Handlingudførelse",
           description:
-            "Ingen ventetid, ingen forsinkelser. Når du giver en kommando, udfører vores platforme den øjeblikkeligt i dine systemer. Rige handlinger, rig resultater, øjeblikkeligt.",
+            "Vent ikke. Når du giver en kommando, udfører Typeble den øjeblikkeligt i dine systemer. Rige handlinger til øjeblikkelige resultater.",
         },
       },
       highlight: {
-        title: "ARBEJD PÅ DEN MÅDE DU TALER",
+        title: "TAL MED DINE SYSTEMER",
         description:
-          "Arbejd naturligt med dine eksisterende systemer ved hjælp af menneskesprog. Vi integrerer direkte og udfører handlinger automatisk. Når du siger \"opret et tilbud\", opretter vi det i dit system. Rig integration betyder rig handlinger i dine faktiske værktøjer.",
+          "Interager naturligt med dine eksisterende forretningssystemer. Typeble integrerer direkte og udfører opgaver automatisk. Når du siger \"opret et tilbud\", gør Typeble det i dit ledelsessystem. Dyb integration betyder konkrete handlinger i dine rig værktøjer.",
         features: [
           "Tal naturligt, arbejd øjeblikkeligt",
-          "Rig systemintegration",
-          "Automatisk handlingudførelse",
+          "Dyb og oprindelig integration",
+          "Automatisk opgaveudførelse",
         ],
       },
     },
     pricing: {
-      title: "Rig Integration Og Prissætning",
+      title: "Integration Og Prissætning",
       subtitle:
-        "Vi forbinder direkte til dine systemer og udfører handlinger automatisk.",
+        "Vi forbinder direkte til dine systemer og automatiserer opgaveudførelse.",
       tiers: {
         migration: {
-          name: "Platform Migration",
-          price: "Fra $2k",
-          description: "Migrer til platforme, der fungerer med naturligt sprog",
+          name: "Optimeret Migration",
+          price: "Fra $2.000",
+          description: "Skift til platforme optimeret til naturligt sprog.",
           features: [
-            "Rig systemintegration (CRM, email, databaser)",
-            "Arbejd naturligt med menneskesprog",
-            "Udfør handlinger automatisk",
-            "Chat-adgang på flere enheder",
-            "Teamtræning og onboarding",
-            "Kommandoer på naturligt sprog",
-            "3 måneders support",
+            "Dybt systemintegration",
+            "Tekst/stemme-kommandoer",
+            "Automatisk opgaveudførelse",
+            "3 måneders Teknisk Support",
           ],
-          cta: "Få tilbud",
+          cta: "Anmod Om Tilbud",
         },
         complete: {
-          name: "Komplet Platform",
-          price: "Fra $5k",
-          description: "Komplet platform med rig systemintegration",
+          name: "Komplet Typeble Platform",
+          price: "Fra $5.000",
+          description: "Komplet platform med total integration i dine systemer.",
           features: [
-            "Rig systemintegration (alle dine værktøjer)",
-            "Arbejd på den måde du taler",
-            "Automatisk handlingudførelse",
-            "Interaktioner på naturligt sprog",
+            "Total systemintegration",
+            "Kommandoer på naturligt sprog",
             "Intelligente dashboards med chat",
-            "Alle enheder klar",
-            "6 måneders support",
-            "Konstant udvikling",
+            "6 måneders Teknisk Support",
           ],
-          cta: "Få tilbud",
+          cta: "Anmod Om Tilbud",
         },
         enterprise: {
-          name: "Enterprise Løsninger",
-          price: "Tilpasset",
-          description: "Storskala integration til hele organisationer",
+          name: "Enterprise Løsninger (Enterprise)",
+          price: "Tilpasset Pris",
+          description: "Storskala integration, skræddersyet til store organisationer.",
           features: [
-            "Firmaomspændende systemintegration",
-            "Avancerede AI-funktioner",
-            "Multi-platform integration",
-            "Realtids handlingudførelse",
-            "Dedikeret support",
-            "24/7 tilgængelighed",
-            "SLA-garanti",
-            "Tilpasset udvikling",
+            "Organisationsomfattende integration",
+            "Avanceret AI og multi-platform",
+            "Dedikeret 24/7 support",
+            "SLA og tilpasset udvikling",
           ],
-          cta: "Kontakt os",
+          cta: "Kontakt Os",
         },
       },
       consultation: {
-        title: "Gratis Konsultation",
+        title: "Gratis Konsultation Uden Forpligtelse",
         description:
-          "Book en gratis konsultation for at se rig systemintegration i aktion. Vi analyserer dine platforme og viser, hvordan vi udfører handlinger automatisk—ingen forpligtelse.",
+          "Book en gratis konsultation for at se rig systemintegration i aktion. Vi analyserer dine platforme og demonstrerer, hvordan vi udfører opgaver automatisk — uden nogen forpligtelse.",
         cta: "Book Konsultation",
       },
     },
     howItWorks: {
-      title: "Sådan Virker Det",
+      title: "Sådan Virker Typeble",
       subtitle:
-        "Typeble integrerer direkte med din virksomheds systemer. Vi udfører handlinger automatisk.",
+        "Typeble integrerer direkte i din virksomheds systemer. Vi automatiserer udførelsen af dine daglige opgaver.",
       learnMore: "Læs Mere",
       steps: {
         step1: {
-          title: "Du Taler",
+          title: "Interager",
           description:
-            "Beskriv hvad du har brug for i naturligt sprog. Ingen grund til at lære komplekse grænseflader eller navigere gennem menuer.",
+            "Beskriv hvad du har brug for i naturligt sprog (tekst eller stemme). Du behøver ikke lære komplekse grænseflader eller navigere gennem menuer.",
         },
         step2: {
-          title: "Vi Udfører",
+          title: "Øjeblikkelig Handling",
           description:
-            "Vores AI forstår din anmodning og udfører den direkte i dine systemer. Når du siger \"opret et tilbud\", opretter vi det i dit system.",
+            "Typeble forstår din anmodning og udfører den direkte i dine systemer. Når du siger 'opret et tilbud', gør Typeble det i dit ledelsessystem.",
         },
-                  step3: {
-            title: "Rig Resultater",
-            description:
-              "Få øjeblikkelige resultater i dine faktiske værktøjer. Rig integration betyder rig handlinger i dit CRM, email, databaser og andre systemer.",
-          },
-          step4: {
-            title: "Valider",
-            description: "Valider og godkend — det er enkelt",
-          },
+        step3: {
+          title: "Konkrete Resultater",
+          description:
+            "Få øjeblikkelige resultater i dine rig værktøjer. Dyb integration betyder konkrete handlinger i dit CRM, email, databaser og andre systemer.",
         },
-        example: {
-        title: "Eksempel",
+        step4: {
+          title: "Valider",
+          description: "Valider og godkend resultatet — det er enkelt.",
+        },
+      },
+      example: {
+        title: "Praktisk Eksempel",
         description:
-          "I stedet for at klikke gennem menuer, bare beskriv hvad du har brug for:",
-        command: '"Opret et tilbud til denne kunde"',
-        result: "Vi opretter tilbuddet i dit system øjeblikkeligt.",
+          "I stedet for at klikke gennem flere menuer, bare beskriv hvad du har brug for:",
+        command: "'Opret et tilbud til denne kunde'",
+        result: "Typeble opretter tilbuddet i dit system øjeblikkeligt.",
       },
     },
     testimonials: {
@@ -751,28 +718,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     cta: {
-      title: "Klar Til At Arbejde På Den Måde Du Taler?",
+      title: "Klar Til At Interagere Som Du Taler?",
       description:
-        "Begynd at arbejde naturligt med dine systemer i dag. Få en gratis konsultation og se, hvordan Typeble integrerer med dine værktøjer.",
+        "Begynd at arbejde naturligt med dine systemer i dag. Anmod om en gratis konsultation og se, hvordan Typeble integrerer i dine værktøjer.",
       button: "KOM I GANG",
     },
-          footer: {
-        description:
-          "Arbejd naturligt med dine eksisterende systemer ved hjælp af menneskesprog.",
-        links: {
-          product: "Produkt",
-          company: "Virksomhed",
-          support: "Support",
-          legal: "Juridisk",
-        },
-        copyright: "© 2025 Typeble. Alle rettigheder forbeholdes.",
+    footer: {
+      description:
+        "Interager naturligt med dine eksisterende systemer gennem menneskesprog.",
+      links: {
+        product: "Produkt",
+        company: "Virksomhed",
+        support: "Kundesupport",
+        legal: "Juridisk Information",
       },
+      copyright: "© 2025 Typeble. Alle rettigheder forbeholdes.",
+    },
     header: {
       nav: {
         features: "Funktioner",
         howItWorks: "Sådan Virker Det",
         pricing: "Prissætning",
-        useCases: "Anvendelsestilfælde",
+        useCases: "Case Studies",
         contact: "Kontakt",
       },
       cta: "Kom I Gang",
