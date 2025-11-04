@@ -68,7 +68,11 @@ function setLanguageInCookie(lang: Language) {
  * Language Provider Component
  */
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  // During SSR/SSG, default to "en". On client, check cookie then browser.
   const [language, setLanguageState] = useState<Language>(() => {
+    // During SSR/SSG, window/document are undefined, so default to "en"
+    if (typeof window === "undefined") return "en";
+    
     // First check cookie
     const cookieLang = getLanguageFromCookie();
     if (cookieLang) return cookieLang;
@@ -77,9 +81,21 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     return detectBrowserLanguage();
   });
 
+  // Sync with cookie on client side after hydration (only on mount)
   useEffect(() => {
-    // Save to cookie when language changes
-    setLanguageInCookie(language);
+    // On client mount, check cookie and update if different
+    const cookieLang = getLanguageFromCookie();
+    if (cookieLang && cookieLang !== language) {
+      setLanguageState(cookieLang);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
+
+  // Save to cookie when language changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setLanguageInCookie(language);
+    }
   }, [language]);
 
   const setLanguage = (lang: Language) => {

@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { LanguageProvider } from "@/lib/i18n/context";
 
 export const metadata: Metadata = {
   title: "Typeble - Work The Way You Talk | Real System Integration",
@@ -26,7 +27,9 @@ export default function RootLayout({
           disableTransitionOnChange
           forcedTheme={undefined}
         >
-          <TooltipProvider>{children}</TooltipProvider>
+          <LanguageProvider>
+            <TooltipProvider>{children}</TooltipProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
