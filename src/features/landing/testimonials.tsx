@@ -6,6 +6,7 @@ import { Quote } from "lucide-react";
 // Internal imports
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * SectionTitle component for consistent headings across sections
@@ -90,36 +91,18 @@ const TestimonialCard = ({
 };
 
 /**
- * Testimonial data from customers
- */
-const testimonials = [
-  {
-    quote:
-      "I used to waste hours navigating complex interfaces. Now I just talk to the system naturally and it happens instantly. 'Show me sales from last month' or 'Create a report for Q3'—done in seconds, not minutes. This is how platforms should work.",
-    author: "Sarah Chen",
-    role: "CEO, TechCorp Solutions",
-    avatar: "/avatars/avatar.png",
-  },
-  {
-    quote:
-      "Working with natural language has completely changed how our team works. Instead of training people on complex navigation, they just talk to the system naturally. Tasks that used to take multiple steps now take one simple request. Game changer.",
-    author: "Michael Rodriguez",
-    role: "Operations Manager, GrowthX",
-    avatar: "/avatars/avatar.png",
-  },
-  {
-    quote:
-      "We now work naturally with our systems using human language. The platform understands us, so we're not fighting with complex interfaces anymore. Want data? Just ask. Need to create something? Describe it. It's intuitive and incredibly fast.",
-    author: "Emma Thompson",
-    role: "Director of Operations, ScaleUp Inc",
-    avatar: "/avatars/avatar.png",
-  },
-];
-
-/**
  * Main Testimonials component
  */
 export function Testimonials() {
+  const { t } = useLanguage();
+
+  const testimonialsData = t.testimonials.items.map((item) => ({
+    quote: item.quote,
+    author: item.author,
+    role: item.role,
+    avatar: "/avatars/avatar.png",
+  }));
+
   return (
     <section
       id="testimonials"
@@ -142,12 +125,12 @@ export function Testimonials() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Companies Working The Way They Talk"
-          subtitle="See how CEOs and employees are working faster and more naturally by using human language with their existing systems."
+          title={t.testimonials.title}
+          subtitle={t.testimonials.subtitle}
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, i) => (
+          {testimonialsData.map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} index={i} />
           ))}
         </div>

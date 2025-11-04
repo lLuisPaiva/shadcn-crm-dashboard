@@ -13,6 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * SectionTitle component for consistent headings across sections
@@ -71,11 +72,8 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
               )}
               <h3 className="text-xl font-bold tracking-tight">{tier.name}</h3>
             </div>
-            <div className="flex items-baseline gap-1.5">
+                        <div className="flex items-baseline gap-1.5">
               <span className="text-4xl font-bold">{tier.price}</span>
-              {tier.price !== "Custom" && (
-                <span className="text-muted-foreground text-sm">/month</span>
-              )}
             </div>
           </div>
         </CardTitle>
@@ -106,7 +104,7 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
           variant={tier.popular ? "default" : "outline"}
         >
           {tier.cta}
-          {tier.name === "Enterprise" && (
+          {(tier.name === "Enterprise Solutions" || tier.name === "Soluções Empresariais") && (
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           )}
         </Button>
@@ -116,65 +114,38 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
 };
 
 /**
- * Pricing tiers data with plan details
- */
-const tiers = [
-  {
-    name: "Platform Migration",
-    price: "From $2k",
-    description: "Migrate to platforms that work with natural language",
-    features: [
-      "Real system integration (CRM, email, databases)",
-      "Work naturally with human language",
-      "Execute actions automatically",
-      "Multi-device chat access",
-      "Team training & onboarding",
-      "Natural language commands",
-      "3 months support",
-    ],
-    cta: "Get quote",
-    popular: false,
-  },
-  {
-    name: "Complete Platform",
-    price: "From $5k",
-    description: "Complete platform with real system integration",
-    features: [
-      "Real system integration (all your tools)",
-      "Work the way you talk",
-      "Automatic action execution",
-      "Natural language interactions",
-      "Intelligent dashboards with chat",
-      "All devices ready",
-      "6 months support",
-      "Constant evolution",
-    ],
-    cta: "Get quote",
-    popular: true,
-  },
-  {
-    name: "Enterprise Solutions",
-    price: "Custom",
-    description: "Large-scale integration for entire organizations",
-    features: [
-      "Company-wide system integration",
-      "Advanced AI capabilities",
-      "Multi-platform integration",
-      "Real-time action execution",
-      "Dedicated support",
-      "24/7 availability",
-      "SLA guarantee",
-      "Custom development",
-    ],
-    cta: "Contact us",
-    popular: false,
-  },
-];
-
-/**
  * Main Pricing component
  */
 export function Pricing() {
+  const { t } = useLanguage();
+
+  const tiersData = [
+    {
+      name: t.pricing.tiers.migration.name,
+      price: t.pricing.tiers.migration.price,
+      description: t.pricing.tiers.migration.description,
+      features: t.pricing.tiers.migration.features,
+      cta: t.pricing.tiers.migration.cta,
+      popular: false,
+    },
+    {
+      name: t.pricing.tiers.complete.name,
+      price: t.pricing.tiers.complete.price,
+      description: t.pricing.tiers.complete.description,
+      features: t.pricing.tiers.complete.features,
+      cta: t.pricing.tiers.complete.cta,
+      popular: true,
+    },
+    {
+      name: t.pricing.tiers.enterprise.name,
+      price: t.pricing.tiers.enterprise.price,
+      description: t.pricing.tiers.enterprise.description,
+      features: t.pricing.tiers.enterprise.features,
+      cta: t.pricing.tiers.enterprise.cta,
+      popular: false,
+    },
+  ];
+
   return (
     <section
       id="pricing"
@@ -197,12 +168,12 @@ export function Pricing() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Real Integration & Pricing"
-          subtitle="We connect directly to your systems and execute actions automatically."
+          title={t.pricing.title}
+          subtitle={t.pricing.subtitle}
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
-          {tiers.map((tier, i) => (
+          {tiersData.map((tier, i) => (
             <PricingCard key={i} tier={tier} index={i} />
           ))}
         </div>
@@ -210,18 +181,17 @@ export function Pricing() {
         {/* Consultation section */}
         <div className="border-border/50 bg-background/50 mt-24 rounded-xl border p-8 text-center">
           <h3 className="text-2xl font-bold tracking-tight" id="custom-plan">
-            Free Consultation
+            {t.pricing.consultation.title}
           </h3>
           <p className="text-muted-foreground mx-auto mt-4 max-w-md text-lg">
-            Book a free consultation to see real system integration in action. 
-            We'll analyze your platforms and show how we execute actions automatically—no obligation.
+            {t.pricing.consultation.description}
           </p>
           <Button
             className="mt-8 h-14 px-8 font-semibold tracking-wide"
             size="lg"
             variant="outline"
           >
-            Book Consultation
+            {t.pricing.consultation.cta}
           </Button>
         </div>
       </div>

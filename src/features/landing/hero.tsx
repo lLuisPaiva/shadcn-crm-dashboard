@@ -7,20 +7,21 @@ import { ArrowRight, LineChart, TrendingUp, Users } from "lucide-react";
 // Internal imports
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * HeroTitle component displaying the main heading with styled text
  */
-const HeroTitle = () => {
+const HeroTitle = ({ title1, title2 }: { title1: string; title2: string }) => {
   return (
     <div className="relative">
       <h1 className="inline-block max-w-6xl leading-none font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
         <div className="relative mb-3 pb-2 text-center text-4xl sm:text-5xl md:mb-5 md:text-6xl">
-          <span className="inline-block">WORK THE WAY</span>
+          <span className="inline-block">{title1}</span>
         </div>
         <div className="mt-1 block text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="bg-primary text-primary-foreground relative inline-block px-4 py-1">
-            YOU TALK
+            {title2}
           </span>
         </div>
       </h1>
@@ -90,6 +91,8 @@ const CTAButton = ({
  * Main Hero component combining all elements
  */
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative overflow-hidden"
@@ -112,13 +115,12 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-32 sm:px-6 sm:py-40 md:min-h-screen lg:min-h-screen lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <BadgeLabel text="Work Naturally" />
+          <BadgeLabel text={t.hero.badge} />
 
-          <HeroTitle />
+          <HeroTitle title1={t.hero.title1} title2={t.hero.title2} />
 
           <p className="text-muted-foreground mt-8 max-w-2xl text-center text-lg">
-            Work naturally with your existing systems using human language. 
-            We integrate directly with your systems and execute actions automatically.
+            {t.hero.description}
           </p>
 
           <div className="relative mt-12 flex flex-col gap-5 sm:flex-row sm:gap-6">
@@ -136,14 +138,14 @@ export function Hero() {
               href="/dashboard"
               icon={<ArrowRight className="h-4 w-4" aria-hidden="true" />}
             >
-              GET STARTED
+              {t.hero.getStarted}
             </CTAButton>
 
-            <CTAButton variant="outline" href="/dashboard">SEE OUR PLATFORMS</CTAButton>
+            <CTAButton variant="outline" href="/dashboard">{t.hero.seePlatforms}</CTAButton>
           </div>
 
           <p className="text-muted-foreground mt-4 text-sm">
-            Free consultation • Seamless migration • Constant improvements
+            {t.hero.footer}
           </p>
 
           {/* Stats bar */}
@@ -160,7 +162,7 @@ export function Hero() {
                 <p className="text-lg font-bold">245%</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Work naturally
+                {t.hero.stats.integrations}
               </p>
             </div>
             <div className="text-center">
@@ -172,7 +174,7 @@ export function Hero() {
                 <p className="text-lg font-bold">10x</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Faster with natural language
+                {t.hero.stats.companies}
               </p>
             </div>
             <div className="text-center">
@@ -181,7 +183,7 @@ export function Hero() {
                 <p className="text-lg font-bold">Human</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Language
+                {t.hero.stats.actions}
               </p>
             </div>
           </div>

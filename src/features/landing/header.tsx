@@ -3,12 +3,19 @@
 // External imports
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, Zap } from "lucide-react";
+import { Menu, Zap, Globe } from "lucide-react";
 
 // Internal imports
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n/context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 /**
  * NavLink component for consistent styling of navigation links
@@ -41,14 +48,60 @@ const NavLink = ({
   );
 };
 
+/**
+ * Language Selector Component
+ */
+const LanguageSelector = () => {
+  const { language, setLanguage } = useLanguage();
+
+  const languages = [
+    { code: "en" as const, label: "English", flag: "🇬🇧" },
+    { code: "pt" as const, label: "Português", flag: "🇵🇹" },
+    { code: "da" as const, label: "Dansk", flag: "🇩🇰" },
+  ];
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="gap-2">
+          <Globe className="h-4 w-4" />
+          <span className="hidden sm:inline">
+            {languages.find((l) => l.code === language)?.flag} {languages.find((l) => l.code === language)?.label}
+          </span>
+          <span className="sm:hidden">
+            {languages.find((l) => l.code === language)?.flag}
+          </span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {languages.map((lang) => (
+          <DropdownMenuItem
+            key={lang.code}
+            onClick={() => setLanguage(lang.code)}
+            className={cn(
+              "gap-2",
+              language === lang.code && "bg-accent"
+            )}
+          >
+            <span>{lang.flag}</span>
+            <span>{lang.label}</span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Features", href: "/#features" },
-    { label: "Use Cases", href: "/use-cases" },
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Pricing", href: "/#pricing" },
+    { label: t.header.nav.features, href: "/#features" },
+    { label: t.header.nav.useCases, href: "/use-cases" },
+    { label: t.header.nav.howItWorks, href: "/how-it-works" },
+    { label: t.header.nav.pricing, href: "/#pricing" },
   ];
 
   return (
@@ -80,7 +133,7 @@ export function Header() {
               {/* Desktop Navigation */}
               <div className="hidden items-center gap-1 md:flex">
                 {navItems.map((item) => {
-                  const isActive = item.href === "/" 
+                  const isActive = item.href === "/"
                     ? false // Handle active state for home differently
                     : false; // You can add active state logic here later
                   return (
@@ -93,14 +146,15 @@ export function Header() {
 
               {/* Desktop CTA */}
               <div className="hidden items-center gap-3 md:flex">
+                <LanguageSelector />
                 <Link href="/#contact">
                   <Button variant="ghost" className="font-medium tracking-wide">
-                    Contact
+                    {t.header.nav.contact}
                   </Button>
                 </Link>
                 <Link href="/dashboard">
                   <Button className="px-4 font-medium tracking-wide">
-                    Get Started
+                    {t.header.cta}
                   </Button>
                 </Link>
 
@@ -159,7 +213,7 @@ export function Header() {
                     className="w-full font-medium tracking-wide"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Contact
+                    {t.header.nav.contact}
                   </Button>
                 </Link>
                 <Link href="/dashboard" className="w-full">
@@ -167,11 +221,12 @@ export function Header() {
                     className="w-full font-medium tracking-wide"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Get Started
+                    {t.header.cta}
                   </Button>
                 </Link>
               </div>
-              <div className="flex items-center justify-end pt-6">
+              <div className="flex items-center justify-between pt-6">
+                <LanguageSelector />
                 <ModeToggle />
               </div>
             </div>

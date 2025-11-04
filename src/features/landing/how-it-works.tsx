@@ -4,35 +4,38 @@ import Link from "next/link";
 import { MessageSquare, Database, Zap, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-const steps = [
-  {
-    number: 1,
-    title: "You Talk",
-    description: "Describe what you need in natural language",
-    icon: MessageSquare,
-  },
-  {
-    number: 2,
-    title: "We Integrate",
-    description: "Connects to your systems automatically",
-    icon: Database,
-  },
-  {
-    number: 3,
-    title: "We Execute",
-    description: "Actions happen in your systems",
-    icon: Zap,
-  },
-  {
-    number: 4,
-    title: "You Review",
-    description: "Validate and approve—it's that simple",
-    icon: CheckCircle2,
-  },
-];
+import { useLanguage } from "@/lib/i18n/context";
 
 export function HowItWorks() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      number: 1,
+      title: t.howItWorks.steps.step1.title,
+      description: t.howItWorks.steps.step1.description,
+      icon: MessageSquare,
+    },
+    {
+      number: 2,
+      title: t.howItWorks.steps.step2.title,
+      description: t.howItWorks.steps.step2.description,
+      icon: Database,
+    },
+    {
+      number: 3,
+      title: t.howItWorks.steps.step3.title,
+      description: t.howItWorks.steps.step3.description,
+      icon: Zap,
+    },
+    {
+      number: 4,
+      title: t.howItWorks.steps.step4.title,
+      description: t.howItWorks.steps.step4.description,
+      icon: CheckCircle2,
+    },
+  ];
+
   return (
     <section
       id="how-it-works"
@@ -59,11 +62,10 @@ export function HowItWorks() {
             id="how-it-works-heading"
             className="text-3xl font-bold tracking-tight uppercase sm:text-4xl"
           >
-            How It Works
+            {t.howItWorks.title}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl text-center text-lg">
-            Work the way you talk. Typeble integrates directly with your systems 
-            and executes actions automatically.
+            {t.howItWorks.subtitle}
           </p>
         </div>
 
@@ -95,7 +97,7 @@ export function HowItWorks() {
         <div className="mt-12 text-center">
           <Link href="/how-it-works">
             <Button variant="outline" size="lg">
-              Learn More
+              {t.howItWorks.learnMore}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

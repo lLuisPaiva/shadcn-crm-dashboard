@@ -6,6 +6,7 @@ import { Zap } from "lucide-react";
 
 // Internal imports
 import { XIcon, GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * FooterHeading component for consistent section headings
@@ -39,27 +40,27 @@ const FooterLink = ({
  */
 const navigation = {
   product: [
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "API", href: "#" },
+    { nameKey: "features" as const, href: "#features" },
+    { nameKey: "pricing" as const, href: "#pricing" },
+    { nameKey: "testimonials" as const, href: "#testimonials" },
+    { nameKey: "api" as const, href: "#" },
   ],
   company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Press", href: "#" },
+    { nameKey: "about" as const, href: "#" },
+    { nameKey: "blog" as const, href: "#" },
+    { nameKey: "careers" as const, href: "#" },
+    { nameKey: "press" as const, href: "#" },
   ],
   support: [
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-    { name: "Help Center", href: "#" },
-    { name: "Contact", href: "#" },
+    { nameKey: "documentation" as const, href: "#" },
+    { nameKey: "guides" as const, href: "#" },
+    { nameKey: "helpCenter" as const, href: "#" },
+    { nameKey: "contact" as const, href: "#" },
   ],
   legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-    { name: "Security", href: "#" },
+    { nameKey: "privacy" as const, href: "#" },
+    { nameKey: "terms" as const, href: "#" },
+    { nameKey: "security" as const, href: "#" },
   ],
   social: [
     {
@@ -87,6 +88,35 @@ const navigation = {
  * Main Footer component
  */
 export function Footer() {
+  const { t } = useLanguage();
+
+  // Navigation labels mapping
+  const navLabels: Record<string, Record<string, string>> = {
+    product: {
+      features: t.header.nav.features,
+      pricing: t.header.nav.pricing,
+      testimonials: "Testimonials", // Not in header, keeping for now
+      api: "API",
+    },
+    company: {
+      about: "About",
+      blog: "Blog",
+      careers: "Careers",
+      press: "Press",
+    },
+    support: {
+      documentation: "Documentation",
+      guides: "Guides",
+      helpCenter: "Help Center",
+      contact: t.header.nav.contact,
+    },
+    legal: {
+      privacy: "Privacy",
+      terms: "Terms",
+      security: "Security",
+    },
+  };
+
   return (
     <footer
       className="border-border/50 relative border-t"
@@ -125,8 +155,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground text-base">
-              Work the way you talk. Our platforms work naturally with your existing systems using human language.
-              Just describe what you need and watch it happen instantly.
+              {t.footer.description}
             </p>
             <div className="flex space-x-5">
               {navigation.social.map((item) => (
@@ -146,21 +175,25 @@ export function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <FooterHeading>Product</FooterHeading>
+                <FooterHeading>{t.footer.links.product}</FooterHeading>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.product.map((item) => (
-                    <li key={item.name}>
-                      <FooterLink href={item.href}>{item.name}</FooterLink>
+                    <li key={item.nameKey}>
+                      <FooterLink href={item.href}>
+                        {navLabels.product[item.nameKey] || item.nameKey}
+                      </FooterLink>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <FooterHeading>Company</FooterHeading>
+                <FooterHeading>{t.footer.links.company}</FooterHeading>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <FooterLink href={item.href}>{item.name}</FooterLink>
+                    <li key={item.nameKey}>
+                      <FooterLink href={item.href}>
+                        {navLabels.company[item.nameKey] || item.nameKey}
+                      </FooterLink>
                     </li>
                   ))}
                 </ul>
@@ -168,21 +201,25 @@ export function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <FooterHeading>Support</FooterHeading>
+                <FooterHeading>{t.footer.links.support}</FooterHeading>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <FooterLink href={item.href}>{item.name}</FooterLink>
+                    <li key={item.nameKey}>
+                      <FooterLink href={item.href}>
+                        {navLabels.support[item.nameKey] || item.nameKey}
+                      </FooterLink>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <FooterHeading>Legal</FooterHeading>
+                <FooterHeading>{t.footer.links.legal}</FooterHeading>
                 <ul role="list" className="mt-4 space-y-3">
                   {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <FooterLink href={item.href}>{item.name}</FooterLink>
+                    <li key={item.nameKey}>
+                      <FooterLink href={item.href}>
+                        {navLabels.legal[item.nameKey] || item.nameKey}
+                      </FooterLink>
                     </li>
                   ))}
                 </ul>
@@ -192,7 +229,7 @@ export function Footer() {
         </div>
         <div className="border-border/50 mt-12 border-t pt-8">
           <p className="text-muted-foreground text-center text-sm">
-            &copy; {new Date().getFullYear()} Typeble, Inc. All rights reserved.
+            {t.footer.copyright}
           </p>
         </div>
       </div>

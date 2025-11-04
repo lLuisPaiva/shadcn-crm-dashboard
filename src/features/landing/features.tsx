@@ -4,10 +4,8 @@
 import {
   Bot,
   BrainCircuit,
-  Clock,
   MessageSquare,
   Smartphone,
-  MousePointerClick,
   RefreshCw,
   Sparkles,
   TimerReset,
@@ -17,6 +15,7 @@ import {
 
 // Internal imports
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/lib/i18n/context";
 
 /**
  * SectionTitle component for consistent headings across sections
@@ -73,63 +72,56 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
 };
 
 /**
- * Features data array containing all product features with their details
- */
-const features = [
-  {
-    title: "Real System Integration",
-    description:
-      "We integrate directly with your systems and execute actions automatically. When you say 'create a quote,' we create it in your system.",
-    icon: <Zap className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(34, 197, 94, 0.1)",
-    textColor: "rgb(34, 197, 94)",
-  },
-  {
-    title: "Work Naturally",
-    description:
-      "Work the way you talk. Describe what you need in natural language, and our platforms execute it instantly in your systems. No complex interfaces to learn.",
-    icon: <MessageSquare className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(168, 85, 247, 0.1)",
-    textColor: "rgb(168, 85, 247)",
-  },
-  {
-    title: "Natural Language Actions",
-    description:
-      "Talk to your dashboard naturally. Our platforms understand commands and convert complex workflows into simple chat conversations that execute real actions.",
-    icon: <Bot className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(234, 179, 8, 0.1)",
-    textColor: "rgb(234, 179, 8)",
-  },
-  {
-    title: "Your Systems, Your Language",
-    description:
-      "Work with your existing systems using natural language. No need to learn complex interfaces—just talk to your tools the way you'd talk to a colleague.",
-    icon: <TrendingUp className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(59, 130, 246, 0.1)",
-    textColor: "rgb(59, 130, 246)",
-  },
-  {
-    title: "Works with Your Tools",
-    description:
-      "Integrates with your existing CRM, email, databases, and booking platforms. No need to change systems—we work alongside them.",
-    icon: <RefreshCw className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(249, 115, 22, 0.1)",
-    textColor: "rgb(249, 115, 22)",
-  },
-  {
-    title: "Multi-Device Ready",
-    description:
-      "Chat from anywhere, anytime. Works on all devices—desktop, tablet, and mobile. Execute actions in your systems from any device.",
-    icon: <Smartphone className="h-7 w-7" aria-hidden="true" />,
-    bgColor: "rgba(14, 165, 233, 0.1)",
-    textColor: "rgb(14, 165, 233)",
-  },
-];
-
-/**
  * Main Features component
  */
 export function Features() {
+  const { t } = useLanguage();
+
+  const featuresData = [
+    {
+      title: t.features.items.realIntegration.title,
+      description: t.features.items.realIntegration.description,
+      icon: <Zap className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(34, 197, 94, 0.1)",
+      textColor: "rgb(34, 197, 94)",
+    },
+    {
+      title: t.features.items.workNaturally.title,
+      description: t.features.items.workNaturally.description,
+      icon: <MessageSquare className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(168, 85, 247, 0.1)",
+      textColor: "rgb(168, 85, 247)",
+    },
+    {
+      title: t.features.items.naturalLanguage.title,
+      description: t.features.items.naturalLanguage.description,
+      icon: <Bot className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(234, 179, 8, 0.1)",
+      textColor: "rgb(234, 179, 8)",
+    },
+    {
+      title: t.features.items.yourSystems.title,
+      description: t.features.items.yourSystems.description,
+      icon: <TrendingUp className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(59, 130, 246, 0.1)",
+      textColor: "rgb(59, 130, 246)",
+    },
+    {
+      title: t.features.items.worksWithTools.title,
+      description: t.features.items.worksWithTools.description,
+      icon: <RefreshCw className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(249, 115, 22, 0.1)",
+      textColor: "rgb(249, 115, 22)",
+    },
+    {
+      title: t.features.items.instantExecution.title,
+      description: t.features.items.instantExecution.description,
+      icon: <Smartphone className="h-7 w-7" aria-hidden="true" />,
+      bgColor: "rgba(14, 165, 233, 0.1)",
+      textColor: "rgb(14, 165, 233)",
+    },
+  ];
+
   return (
     <section
       id="features"
@@ -152,12 +144,12 @@ export function Features() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Work The Way You Talk"
-          subtitle="Work naturally with your systems using human language. We integrate directly and execute actions automatically."
+          title={t.features.title}
+          subtitle={t.features.subtitle}
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, i) => (
+          {featuresData.map((feature, i) => (
             <FeatureCard key={i} feature={feature} index={i} />
           ))}
         </div>
@@ -173,48 +165,26 @@ export function Features() {
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold tracking-tight">
-                WORK THE WAY YOU TALK
+                {t.features.highlight.title}
               </h3>
               <p className="text-muted-foreground mt-4 text-lg">
-                Work naturally with your existing systems using human language. 
-                We integrate directly and execute actions automatically. When you say "create a quote," 
-                we create it in your system. Real integration means real actions in your actual tools.
+                {t.features.highlight.description}
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <div className="flex items-center gap-2">
-                  <span
-                    className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
-                    aria-hidden="true"
-                  >
-                    <MessageSquare className="text-primary h-4 w-4" />
-                  </span>
-                  <span className="text-sm font-medium">
-                    Chat actions
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
-                    aria-hidden="true"
-                  >
-                    <TimerReset className="text-primary h-4 w-4" />
-                  </span>
-                  <span className="text-sm font-medium">
-                    Natural language
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span
-                    className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
-                    aria-hidden="true"
-                  >
-                    <Sparkles className="text-primary h-4 w-4" />
-                  </span>
-                  <span className="text-sm font-medium">
-                    Natural language
-                  </span>
-                </div>
+                {t.features.highlight.features.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span
+                      className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"
+                      aria-hidden="true"
+                    >
+                      <Zap className="text-primary h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-medium">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
