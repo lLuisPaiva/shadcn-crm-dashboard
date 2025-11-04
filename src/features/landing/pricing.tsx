@@ -122,15 +122,15 @@ const tiers = [
   {
     name: "Platform Migration",
     price: "From $2k",
-    description: "Migrate from click-heavy platforms to chat-driven solutions",
+    description: "Migrate to platforms that work with natural language",
     features: [
-      "Replace click-by-click workflows",
-      "Chat-based interactions",
+      "Real system integration (CRM, email, databases)",
+      "Work naturally with human language",
+      "Execute actions automatically",
       "Multi-device chat access",
       "Team training & onboarding",
       "Natural language commands",
       "3 months support",
-      "Regular updates",
     ],
     cta: "Get quote",
     popular: false,
@@ -138,16 +138,16 @@ const tiers = [
   {
     name: "Complete Platform",
     price: "From $5k",
-    description: "Complete chat-driven platform replacing clicks with conversations",
+    description: "Complete platform with real system integration",
     features: [
-      "Chat replaces majority of clicks",
+      "Real system integration (all your tools)",
+      "Work the way you talk",
+      "Automatic action execution",
       "Natural language interactions",
       "Intelligent dashboards with chat",
       "All devices ready",
-      "Custom chat workflows",
       "6 months support",
       "Constant evolution",
-      "Seamless migration",
     ],
     cta: "Get quote",
     popular: true,
@@ -155,15 +155,15 @@ const tiers = [
   {
     name: "Enterprise Solutions",
     price: "Custom",
-    description: "Large-scale platform modernization for entire organizations",
+    description: "Large-scale integration for entire organizations",
     features: [
-      "Company-wide improvements",
+      "Company-wide system integration",
       "Advanced AI capabilities",
       "Multi-platform integration",
+      "Real-time action execution",
       "Dedicated support",
       "24/7 availability",
       "SLA guarantee",
-      "Unlimited devices",
       "Custom development",
     ],
     cta: "Contact us",
@@ -197,8 +197,8 @@ export function Pricing() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Chat-Driven Platforms & Pricing"
-          subtitle="Migrate to platforms where chat replaces clicks. Our solutions transform your work by letting you interact naturally—describe what you need instead of clicking through endless menus."
+          title="Real Integration & Pricing"
+          subtitle="We connect directly to your systems and execute actions automatically."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
@@ -213,10 +213,8 @@ export function Pricing() {
             Free Consultation
           </h3>
           <p className="text-muted-foreground mx-auto mt-4 max-w-md text-lg">
-            Book a free consultation to see how we can replace your click-by-click
-            workflows with chat actions. We'll analyze your current platforms, show
-            you the chat capabilities, and demonstrate how much faster your work can
-            be—no obligation, just honest insights.
+            Book a free consultation to see real system integration in action. 
+            We'll analyze your platforms and show how we execute actions automatically—no obligation.
           </p>
           <Button
             className="mt-8 h-14 px-8 font-semibold tracking-wide"

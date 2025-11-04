@@ -6,9 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Typeble - Replace Clicks with Chat Actions | Conversational Platforms",
+  title: "Typeble - Work The Way You Talk | Real System Integration",
   description:
-    "Stop clicking through endless menus. Our platforms and dashboards replace click-by-click actions with intuitive chat interactions. Simply describe what you need, and get it done instantly.",
+    "Work naturally with your existing systems using human language. We integrate directly with your company's systems and execute actions automatically.",
 };
 
 export default function RootLayout({

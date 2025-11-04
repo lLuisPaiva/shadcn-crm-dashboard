@@ -95,21 +95,21 @@ const TestimonialCard = ({
 const testimonials = [
   {
     quote:
-      "I used to waste hours clicking through menus and forms. Now I just chat with the dashboard and it happens instantly. 'Show me sales from last month' or 'Create a report for Q3'—done in seconds, not minutes. This is how platforms should work.",
+      "I used to waste hours navigating complex interfaces. Now I just talk to the system naturally and it happens instantly. 'Show me sales from last month' or 'Create a report for Q3'—done in seconds, not minutes. This is how platforms should work.",
     author: "Sarah Chen",
     role: "CEO, TechCorp Solutions",
     avatar: "/avatars/avatar.png",
   },
   {
     quote:
-      "The chat interface has completely changed how our team works. Instead of training people on complex navigation and clicking through multiple screens, they just ask for what they need. Tasks that took 10 clicks now take one message. Game changer.",
+      "Working with natural language has completely changed how our team works. Instead of training people on complex navigation, they just talk to the system naturally. Tasks that used to take multiple steps now take one simple request. Game changer.",
     author: "Michael Rodriguez",
     role: "Operations Manager, GrowthX",
     avatar: "/avatars/avatar.png",
   },
   {
     quote:
-      "We replaced most of our click-by-click workflows with chat actions. The platform understands natural language, so we're not fighting with menus anymore. Want data? Just ask. Need to create something? Describe it. It's intuitive and incredibly fast.",
+      "We now work naturally with our systems using human language. The platform understands us, so we're not fighting with complex interfaces anymore. Want data? Just ask. Need to create something? Describe it. It's intuitive and incredibly fast.",
     author: "Emma Thompson",
     role: "Director of Operations, ScaleUp Inc",
     avatar: "/avatars/avatar.png",
@@ -142,8 +142,8 @@ export function Testimonials() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Companies Switching from Clicks to Chat"
-          subtitle="See how CEOs and employees are working faster by replacing click-by-click actions with natural chat interactions on our platforms."
+          title="Companies Working The Way They Talk"
+          subtitle="See how CEOs and employees are working faster and more naturally by using human language with their existing systems."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

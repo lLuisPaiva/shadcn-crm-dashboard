@@ -10,6 +10,7 @@ import { Features } from "@/features/landing/features";
 import { Footer } from "@/features/landing/footer";
 import { Header } from "@/features/landing/header";
 import { Hero } from "@/features/landing/hero";
+import { HowItWorks } from "@/features/landing/how-it-works";
 import { Pricing } from "@/features/landing/pricing";
 import { Testimonials } from "@/features/landing/testimonials";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
+      <HowItWorks />
       <Pricing />
       <Testimonials />
       <CTA />

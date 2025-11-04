@@ -77,50 +77,50 @@ const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
  */
 const features = [
   {
-    title: "Chat Instead of Click",
+    title: "Real System Integration",
     description:
-      "Replace tedious click-by-click navigation with natural conversations. Simply describe what you need in chat, and our platforms execute it instantly. No more hunting through menus, buttons, and dropdowns.",
-    icon: <MessageSquare className="h-7 w-7" aria-hidden="true" />,
+      "We integrate directly with your systems and execute actions automatically. When you say 'create a quote,' we create it in your system.",
+    icon: <Zap className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(34, 197, 94, 0.1)",
     textColor: "rgb(34, 197, 94)",
   },
   {
-    title: "Natural Language Actions",
+    title: "Work Naturally",
     description:
-      "Talk to your dashboard like you talk to a colleague. Our platforms understand natural language commands, converting complex multi-click workflows into simple chat conversations.",
-    icon: <Bot className="h-7 w-7" aria-hidden="true" />,
+      "Work the way you talk. Describe what you need in natural language, and our platforms execute it instantly in your systems. No complex interfaces to learn.",
+    icon: <MessageSquare className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(168, 85, 247, 0.1)",
     textColor: "rgb(168, 85, 247)",
   },
   {
-    title: "Eliminate Click Fatigue",
+    title: "Natural Language Actions",
     description:
-      "Stop the endless clicking. Our platforms replace the majority of click-by-click actions with intelligent chat interfaces. Get more done with fewer interactions.",
-    icon: <MousePointerClick className="h-7 w-7" aria-hidden="true" />,
+      "Talk to your dashboard naturally. Our platforms understand commands and convert complex workflows into simple chat conversations that execute real actions.",
+    icon: <Bot className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(234, 179, 8, 0.1)",
     textColor: "rgb(234, 179, 8)",
   },
   {
-    title: "Intelligent Dashboards",
+    title: "Your Systems, Your Language",
     description:
-      "Dashboards that respond to your commands. Instead of navigating through multiple screens and clicks, chat with your dashboard to access data, create reports, and execute actions instantly.",
+      "Work with your existing systems using natural language. No need to learn complex interfaces—just talk to your tools the way you'd talk to a colleague.",
     icon: <TrendingUp className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(59, 130, 246, 0.1)",
     textColor: "rgb(59, 130, 246)",
   },
   {
-    title: "Work from Any Device",
+    title: "Works with Your Tools",
     description:
-      "Chat from anywhere, anytime. Our platforms work beautifully on all devices—desktop, tablet, and mobile. Type your commands naturally, wherever you are.",
-    icon: <Smartphone className="h-7 w-7" aria-hidden="true" />,
+      "Integrates with your existing CRM, email, databases, and booking platforms. No need to change systems—we work alongside them.",
+    icon: <RefreshCw className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(249, 115, 22, 0.1)",
     textColor: "rgb(249, 115, 22)",
   },
   {
-    title: "Constantly Evolving",
+    title: "Multi-Device Ready",
     description:
-      "We never stop improving. Regular updates enhance our chat capabilities, add new conversational features, and ensure your platforms understand more natural commands over time.",
-    icon: <Clock className="h-7 w-7" aria-hidden="true" />,
+      "Chat from anywhere, anytime. Works on all devices—desktop, tablet, and mobile. Execute actions in your systems from any device.",
+    icon: <Smartphone className="h-7 w-7" aria-hidden="true" />,
     bgColor: "rgba(14, 165, 233, 0.1)",
     textColor: "rgb(14, 165, 233)",
   },
@@ -152,8 +152,8 @@ export function Features() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <SectionTitle
-          title="Chat Actions Replace Clicks"
-          subtitle="Our platforms transform how you work by replacing click-by-click navigation with natural chat interactions. Simply tell the platform what you need, and watch it happen instantly—no more hunting through menus and buttons."
+          title="Work The Way You Talk"
+          subtitle="Work naturally with your systems using human language. We integrate directly and execute actions automatically."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -173,15 +173,12 @@ export function Features() {
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold tracking-tight">
-                THE FUTURE IS CONVERSATIONAL
+                WORK THE WAY YOU TALK
               </h3>
               <p className="text-muted-foreground mt-4 text-lg">
-                We believe platforms shouldn't require endless clicking. Our
-                dashboards and platforms replace click-by-click actions with
-                intuitive chat interactions. Instead of navigating through menus,
-                buttons, and forms, simply chat with your platform. Describe what
-                you need, and watch it happen instantly. Work naturally, work
-                faster, work smarter.
+                Work naturally with your existing systems using human language. 
+                We integrate directly and execute actions automatically. When you say "create a quote," 
+                we create it in your system. Real integration means real actions in your actual tools.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -204,7 +201,7 @@ export function Features() {
                     <TimerReset className="text-primary h-4 w-4" />
                   </span>
                   <span className="text-sm font-medium">
-                    No more clicking
+                    Natural language
                   </span>
                 </div>
                 <div className="flex items-center gap-2">

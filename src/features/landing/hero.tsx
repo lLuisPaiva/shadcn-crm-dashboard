@@ -16,11 +16,11 @@ const HeroTitle = () => {
     <div className="relative">
       <h1 className="inline-block max-w-6xl leading-none font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
         <div className="relative mb-3 pb-2 text-center text-4xl sm:text-5xl md:mb-5 md:text-6xl">
-          <span className="inline-block">REPLACE CLICKS WITH</span>
+          <span className="inline-block">WORK THE WAY</span>
         </div>
         <div className="mt-1 block text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="bg-primary text-primary-foreground relative inline-block px-4 py-1">
-            CONVERSATIONS
+            YOU TALK
           </span>
         </div>
       </h1>
@@ -112,15 +112,13 @@ export function Hero() {
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 py-32 sm:px-6 sm:py-40 md:min-h-screen lg:min-h-screen lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <BadgeLabel text="From Clicks to Conversations" />
+          <BadgeLabel text="Work Naturally" />
 
           <HeroTitle />
 
           <p className="text-muted-foreground mt-8 max-w-2xl text-center text-lg">
-            Stop clicking through endless menus and buttons. Our platforms and
-            dashboards replace the majority of click-by-click actions with
-            intuitive chat actions. Simply describe what you need, and get it
-            done instantly. Work faster, smarter, and more naturally.
+            Work naturally with your existing systems using human language. 
+            We integrate directly with your systems and execute actions automatically.
           </p>
 
           <div className="relative mt-12 flex flex-col gap-5 sm:flex-row sm:gap-6">
@@ -162,7 +160,7 @@ export function Hero() {
                 <p className="text-lg font-bold">245%</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Fewer clicks required
+                Work naturally
               </p>
             </div>
             <div className="text-center">
@@ -174,16 +172,16 @@ export function Hero() {
                 <p className="text-lg font-bold">10x</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Faster with chat actions
+                Faster with natural language
               </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1.5">
                 <Users className="h-4 w-4 text-green-500" aria-hidden="true" />
-                <p className="text-lg font-bold">Chat</p>
+                <p className="text-lg font-bold">Human</p>
               </div>
               <p className="text-muted-foreground text-xs">
-                Instead of clicking
+                Language
               </p>
             </div>
           </div>

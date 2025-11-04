@@ -125,9 +125,8 @@ export function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground text-base">
-              Replacing click-by-click actions with natural chat interactions.
-              Our platforms and dashboards understand what you need—just describe
-              it in chat and watch it happen instantly.
+              Work the way you talk. Our platforms work naturally with your existing systems using human language.
+              Just describe what you need and watch it happen instantly.
             </p>
             <div className="flex space-x-5">
               {navigation.social.map((item) => (

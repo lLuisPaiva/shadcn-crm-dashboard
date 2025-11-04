@@ -63,13 +63,12 @@ export function CTA() {
             <div className="border-border/50 bg-background/80 rounded-xl border p-8 sm:p-12 lg:p-16 shadow-lg backdrop-blur-sm">
               <div className="mx-auto max-w-xl lg:max-w-none">
                 <h2 id="cta-heading" className="text-center text-2xl font-bold tracking-tight uppercase sm:text-3xl lg:text-4xl">
-                  Ready to replace clicks with conversations?
+                  Ready to work the way you talk?
                 </h2>
                 <p className="text-muted-foreground mx-auto mt-6 max-w-xl text-center text-lg">
-                  Join companies that have switched from click-by-click navigation to
-                  natural chat interactions. Experience platforms where you simply
-                  describe what you need, and it happens instantly—no more hunting
-                  through menus and buttons.
+                  Join companies using real system integration. Unlike generic LLMs, we execute 
+                  actions automatically in your CRM, email, and databases. Describe what you need, 
+                  and watch it happen.
                 </p>
                 <div className="relative mt-12 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-6">
                   {/* Decorative elements around buttons */}

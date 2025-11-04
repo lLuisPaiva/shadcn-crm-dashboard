@@ -8,7 +8,6 @@ import { Menu, Zap } from "lucide-react";
 // Internal imports
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
-import { useActiveSection } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
 
 /**
@@ -44,8 +43,13 @@ const NavLink = ({
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ["Home", "Features", "Pricing", "Testimonials"];
-  const { activeHash } = useActiveSection(navItems);
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Features", href: "/#features" },
+    { label: "Use Cases", href: "/use-cases" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "Pricing", href: "/#pricing" },
+  ];
 
   return (
     <>
@@ -76,11 +80,12 @@ export function Header() {
               {/* Desktop Navigation */}
               <div className="hidden items-center gap-1 md:flex">
                 {navItems.map((item) => {
-                  const hash = `#${item.toLowerCase()}`;
-                  const isActive = activeHash === hash;
+                  const isActive = item.href === "/" 
+                    ? false // Handle active state for home differently
+                    : false; // You can add active state logic here later
                   return (
-                    <NavLink key={item} href={hash} isActive={isActive}>
-                      {item}
+                    <NavLink key={item.label} href={item.href} isActive={isActive}>
+                      {item.label}
                     </NavLink>
                   );
                 })}
@@ -88,9 +93,11 @@ export function Header() {
 
               {/* Desktop CTA */}
               <div className="hidden items-center gap-3 md:flex">
-                <Button variant="ghost" className="font-medium tracking-wide">
-                  Sign in
-                </Button>
+                <Link href="/#contact">
+                  <Button variant="ghost" className="font-medium tracking-wide">
+                    Contact
+                  </Button>
+                </Link>
                 <Link href="/dashboard">
                   <Button className="px-4 font-medium tracking-wide">
                     Get Started
@@ -134,27 +141,27 @@ export function Header() {
           <div className="bg-background/95 border-border/50 fixed inset-x-0 top-0 border-b p-6">
             <div className="mt-20 flex flex-col gap-2 space-y-1">
               {navItems.map((item) => {
-                const hash = `#${item.toLowerCase()}`;
-                const isActive = activeHash === hash;
                 return (
                   <NavLink
-                    key={item}
-                    href={hash}
-                    isActive={isActive}
+                    key={item.label}
+                    href={item.href}
+                    isActive={false}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item}
+                    {item.label}
                   </NavLink>
                 );
               })}
               <div className="border-border/50 mt-6 grid grid-cols-2 gap-3 border-t pt-6">
-                <Button
-                  variant="outline"
-                  className="w-full font-medium tracking-wide"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Sign in
-                </Button>
+                <Link href="/#contact" className="w-full">
+                  <Button
+                    variant="outline"
+                    className="w-full font-medium tracking-wide"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Contact
+                  </Button>
+                </Link>
                 <Link href="/dashboard" className="w-full">
                   <Button
                     className="w-full font-medium tracking-wide"
