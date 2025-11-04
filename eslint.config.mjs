@@ -18,6 +18,10 @@ const eslintConfig = [
       "@typescript-eslint/no-empty-object-type": 0,
       "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-unused-expressions": 0,
+      // Allow unescaped entities in JSX (quotes, apostrophes)
+      "react/no-unescaped-entities": "off",
+      // Allow <a> tags for internal links (Next.js still recommends <Link> but won't error)
+      "@next/next/no-html-link-for-pages": "off",
     },
   },
 ];
