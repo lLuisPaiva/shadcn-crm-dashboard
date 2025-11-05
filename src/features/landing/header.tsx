@@ -3,7 +3,7 @@
 // External imports
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, Globe } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/context";
+import { translations } from "@/lib/i18n/translations";
 import { QuoteChatButton } from "@/components/quote-chat-button";
 import {
   DropdownMenu,
@@ -97,15 +98,25 @@ const LanguageSelector = () => {
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { t } = useLanguage();
   const { resolvedTheme } = useTheme();
 
+  // Prevent hydration mismatch by only using theme-dependent values after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use English translations during SSR to prevent hydration mismatch
+  // After mount, use the actual language from context
+  const safeT = mounted ? t : translations.en;
+
   const navItems = [
     { label: "Home", href: "/" },
-    { label: t.header.nav.features, href: "/#features" },
-    { label: t.header.nav.useCases, href: "/use-cases" },
-    { label: t.header.nav.howItWorks, href: "/how-it-works" },
-    { label: t.header.nav.pricing, href: "/#pricing" },
+    { label: safeT.header.nav.features, href: "/#features" },
+    { label: safeT.header.nav.useCases, href: "/use-cases" },
+    { label: safeT.header.nav.howItWorks, href: "/how-it-works" },
+    { label: safeT.header.nav.pricing, href: "/#pricing" },
   ];
 
   return (
@@ -127,7 +138,7 @@ export function Header() {
                 <div className="flex items-center gap-2">
                   {/* <div className="bg-primary/10 flex h-8 w-8 items-center justify-center rounded-full"> */}
                     <Image
-                      src={resolvedTheme === "dark" ? "/images/logo-gold.png" : "/images/logo.png"}
+                      src={mounted && resolvedTheme === "dark" ? "/images/logo-gold.png" : "/images/logo.png"}
                       alt="Typeble"
                       width={150}
                       height={40}
@@ -159,11 +170,11 @@ export function Header() {
               <div className="hidden items-center gap-3 md:flex">
                 <LanguageSelector />
                 <QuoteChatButton variant="ghost" className="font-medium tracking-wide">
-                  {t.header.nav.contact}
+                  {safeT.header.nav.contact}
                 </QuoteChatButton>
                 <Link href="/dashboard">
                   <Button className="px-4 font-medium tracking-wide">
-                    {t.header.cta}
+                    {safeT.header.cta}
                   </Button>
                 </Link>
 
@@ -221,14 +232,14 @@ export function Header() {
                     className="w-full font-medium tracking-wide"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {t.header.nav.contact}
+                    {safeT.header.nav.contact}
                   </QuoteChatButton>
                   <Link href="/dashboard" className="w-full">
                     <Button
                       className="w-full font-medium tracking-wide"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {t.header.cta}
+                      {safeT.header.cta}
                     </Button>
                   </Link>
                 </div>

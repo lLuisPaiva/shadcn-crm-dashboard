@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   title: "Typeble - Work The Way You Talk | Real System Integration",
   description:
     "Work naturally with your existing systems using human language. We integrate directly with your company's systems and execute actions automatically.",
+  icons: {
+    icon: "/images/favicon.svg",
+    shortcut: "/images/favicon.svg",
+    apple: "/images/favicon.svg",
+  },
 };
 
 export default function RootLayout({

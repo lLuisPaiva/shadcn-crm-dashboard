@@ -1,4 +1,4 @@
-import { supabase } from "./client";
+import { getSupabaseClient } from "./client";
 import { z } from "zod";
 
 // Zod schema for quote validation
@@ -35,6 +35,17 @@ export async function submitQuote(data: QuoteData): Promise<{
   id?: string;
 }> {
   try {
+    // Check if Supabase is configured
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      return {
+        success: false,
+        error: "Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.",
+      };
+    }
+
     // Validate data with Zod
     const validatedData = QuoteSchema.parse(data);
 
@@ -48,6 +59,9 @@ export async function submitQuote(data: QuoteData): Promise<{
       specific_needs: validatedData.specificNeeds || null,
       timeline: validatedData.timeline || null,
     };
+
+    // Get Supabase client (will throw if not configured)
+    const supabase = getSupabaseClient();
 
     // Insert into Supabase
     const { data: insertedData, error } = await supabase
