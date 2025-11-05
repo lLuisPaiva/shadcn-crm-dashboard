@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/context";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { submitQuote, type QuoteData as QuoteDataType } from "@/lib/supabase/quotes";
 
 interface Message {
   id: string;
@@ -115,20 +116,20 @@ export function QuoteChat() {
       en: "How many systems or tools do you need to integrate? (e.g., CRM, ERP, email tools, etc.)",
     },
     systems: {
+      pt: "Quantos sistemas ou ferramentas precisa de integrar? (ex: CRM, ERP, ferramentas de email, etc.)",
+      en: "How many systems or tools do you need to integrate? (e.g., CRM, ERP, email tools, etc.)",
+    },
+    users: {
       pt: "Quantos utilizadores vão usar a plataforma?",
       en: "How many users will use the platform?",
     },
-    users: {
+    needs: {
       pt: "Tem alguma necessidade específica ou requisito que gostaria de mencionar?",
       en: "Do you have any specific needs or requirements you'd like to mention?",
     },
-    needs: {
+    timeline: {
       pt: "Qual é o prazo esperado para implementação? (ex: 1 mês, 3 meses, urgente)",
       en: "What's the expected timeline for implementation? (e.g., 1 month, 3 months, urgent)",
-    },
-    timeline: {
-      pt: "",
-      en: "",
     },
     summary: {
       pt: "",
@@ -188,12 +189,18 @@ export function QuoteChat() {
       setCurrentStep("needs");
       addAssistantMessage(questions.needs[isPT ? "pt" : "en"]);
     } else if (currentStep === "needs") {
+      setQuoteData({ ...quoteData, specificNeeds: userMessage.content });
+      setCurrentStep("timeline");
+      addAssistantMessage(questions.timeline[isPT ? "pt" : "en"]);
+    } else if (currentStep === "timeline") {
       const updatedData = { ...quoteData, timeline: userMessage.content };
       setQuoteData(updatedData);
       setCurrentStep("summary");
       setIsLoading(false);
-      // Show summary after state update
-      setTimeout(() => showSummary(updatedData), 100);
+      // Show summary and submit after state update
+      setTimeout(() => {
+        showSummary(updatedData);
+      }, 100);
       return;
     }
 
@@ -247,13 +254,42 @@ export function QuoteChat() {
     }, 100);
   };
 
-  const showSummary = (data: QuoteData) => {
+  const showSummary = async (data: QuoteData) => {
     const summaryData = data || quoteData;
-    const summary = isPT
-      ? `Excelente! Recolhi todas as informações. Aqui está um resumo do seu pedido de orçamento:\n\n## 📋 Resumo do Pedido\n\n- **Empresa:** ${summaryData.companyName}\n- **Contacto:** ${summaryData.contact}\n- **Tipo de Integração:** ${summaryData.integrationType}\n- **Sistemas a integrar:** ${summaryData.systemsCount}\n- **Utilizadores:** ${summaryData.usersCount}\n- **Prazo:** ${summaryData.timeline}\n\n✅ **O seu pedido foi enviado com sucesso!** A nossa equipa entrará em contacto consigo em breve com um orçamento personalizado.\n\nObrigado pelo interesse na Typeble! 🚀`
-      : `Excellent! I've gathered all the information. Here's a summary of your quote request:\n\n## 📋 Request Summary\n\n- **Company:** ${summaryData.companyName}\n- **Contact:** ${summaryData.contact}\n- **Integration Type:** ${summaryData.integrationType}\n- **Systems to integrate:** ${summaryData.systemsCount}\n- **Users:** ${summaryData.usersCount}\n- **Timeline:** ${summaryData.timeline}\n\n✅ **Your request has been successfully submitted!** Our team will contact you shortly with a personalized quote.\n\nThank you for your interest in Typeble! 🚀`;
+    
+    // Show loading message
+    setIsLoading(true);
+    addAssistantMessage(
+      isPT
+        ? "A enviar o seu pedido de orçamento..."
+        : "Submitting your quote request..."
+    );
 
-    addAssistantMessage(summary);
+    // Submit to Supabase
+    const result = await submitQuote(summaryData as QuoteDataType);
+
+    setIsLoading(false);
+
+    if (result.success) {
+      const summary = isPT
+        ? `Excelente! Recolhi todas as informações. Aqui está um resumo do seu pedido de orçamento:\n\n## 📋 Resumo do Pedido\n\n- **Empresa:** ${summaryData.companyName}\n- **Contacto:** ${summaryData.contact}\n- **Tipo de Integração:** ${summaryData.integrationType}\n- **Sistemas a integrar:** ${summaryData.systemsCount}\n- **Utilizadores:** ${summaryData.usersCount}\n${summaryData.specificNeeds ? `- **Necessidades específicas:** ${summaryData.specificNeeds}\n` : ""}- **Prazo:** ${summaryData.timeline}\n\n✅ **O seu pedido foi enviado com sucesso!** A nossa equipa entrará em contacto consigo em breve com um orçamento personalizado.\n\nObrigado pelo interesse na Typeble! 🚀`
+        : `Excellent! I've gathered all the information. Here's a summary of your quote request:\n\n## 📋 Request Summary\n\n- **Company:** ${summaryData.companyName}\n- **Contact:** ${summaryData.contact}\n- **Integration Type:** ${summaryData.integrationType}\n- **Systems to integrate:** ${summaryData.systemsCount}\n- **Users:** ${summaryData.usersCount}\n${summaryData.specificNeeds ? `- **Specific needs:** ${summaryData.specificNeeds}\n` : ""}- **Timeline:** ${summaryData.timeline}\n\n✅ **Your request has been successfully submitted!** Our team will contact you shortly with a personalized quote.\n\nThank you for your interest in Typeble! 🚀`;
+
+      addAssistantMessage(summary);
+    } else {
+      const errorMessage = isPT
+        ? `❌ Ocorreu um erro ao enviar o seu pedido. Por favor, tente novamente ou contacte-nos diretamente.\n\nErro: ${result.error || "Erro desconhecido"}`
+        : `❌ An error occurred while submitting your request. Please try again or contact us directly.\n\nError: ${result.error || "Unknown error"}`;
+      
+      addAssistantMessage(errorMessage);
+      
+      // Still show summary even if submission failed
+      const summary = isPT
+        ? `Aqui está um resumo do seu pedido:\n\n- **Empresa:** ${summaryData.companyName}\n- **Contacto:** ${summaryData.contact}\n- **Tipo de Integração:** ${summaryData.integrationType}\n- **Sistemas a integrar:** ${summaryData.systemsCount}\n- **Utilizadores:** ${summaryData.usersCount}\n${summaryData.specificNeeds ? `- **Necessidades específicas:** ${summaryData.specificNeeds}\n` : ""}- **Prazo:** ${summaryData.timeline}`
+        : `Here's a summary of your request:\n\n- **Company:** ${summaryData.companyName}\n- **Contact:** ${summaryData.contact}\n- **Integration Type:** ${summaryData.integrationType}\n- **Systems to integrate:** ${summaryData.systemsCount}\n- **Users:** ${summaryData.usersCount}\n${summaryData.specificNeeds ? `- **Specific needs:** ${summaryData.specificNeeds}\n` : ""}- **Timeline:** ${summaryData.timeline}`;
+      
+      addAssistantMessage(summary);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
