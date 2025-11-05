@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Calendar, Clock, Video, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -98,6 +98,25 @@ export function ScheduleCalendar({ onSlotSelect, selectedDate, selectedTime, onT
     ? ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]
     : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  const fetchAvailableSlots = useCallback(async (date: string) => {
+    setLoadingSlots(true);
+    try {
+      const result = await getAvailableSlots(date);
+      if (result.success && result.slots) {
+        setAvailableSlots(result.slots);
+      } else {
+        // If error, show all slots as available (fallback)
+        setAvailableSlots(allTimeSlots);
+      }
+    } catch (error) {
+      console.error("Error fetching slots:", error);
+      // Fallback: show all slots as available
+      setAvailableSlots(allTimeSlots);
+    } finally {
+      setLoadingSlots(false);
+    }
+  }, [allTimeSlots]);
+
   // Fetch available slots when a date is selected
   useEffect(() => {
     if (selectedDay) {
@@ -105,7 +124,7 @@ export function ScheduleCalendar({ onSlotSelect, selectedDate, selectedTime, onT
     } else {
       setAvailableSlots([]);
     }
-  }, [selectedDay]);
+  }, [selectedDay, fetchAvailableSlots]);
 
   // Auto-scroll to time slots when they are loaded
   useEffect(() => {
@@ -125,25 +144,6 @@ export function ScheduleCalendar({ onSlotSelect, selectedDate, selectedTime, onT
       }, 150);
     }
   }, [loadingSlots, selectedDay, availableSlots.length, onTimeSlotsReady]);
-
-  const fetchAvailableSlots = async (date: string) => {
-    setLoadingSlots(true);
-    try {
-      const result = await getAvailableSlots(date);
-      if (result.success && result.slots) {
-        setAvailableSlots(result.slots);
-      } else {
-        // If error, show all slots as available (fallback)
-        setAvailableSlots(allTimeSlots);
-      }
-    } catch (error) {
-      console.error("Error fetching slots:", error);
-      // Fallback: show all slots as available
-      setAvailableSlots(allTimeSlots);
-    } finally {
-      setLoadingSlots(false);
-    }
-  };
 
   const handleDaySelect = (date: Date) => {
     const dateStr = date.toISOString().split("T")[0];
