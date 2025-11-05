@@ -22,136 +22,136 @@ export const sidebarMenus = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/dashboard/overview",
+      url: "/overview",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "Overview",
-          url: "/dashboard/overview",
+          url: "/overview",
         },
         {
           title: "Activity Logs",
-          url: "/dashboard/activity-logs",
+          url: "/activity-logs",
         },
       ],
     },
     {
       title: "Leads",
-      url: "/dashboard/leads",
+      url: "/leads",
       icon: HandCoins,
       items: [
         {
           title: "All Leads",
-          url: "/dashboard/leads",
+          url: "/leads",
         },
         {
           title: "Qualified Leads",
-          url: "/dashboard/leads/qualified",
+          url: "/leads/qualified",
         },
         {
           title: "Lead Scoring",
-          url: "/dashboard/leads/lead-scoring",
+          url: "/leads/lead-scoring",
         },
       ],
     },
     {
       title: "Customers",
-      url: "/dashboard/customers",
+      url: "/customers",
       icon: Users,
       items: [
         {
           title: "All Customers",
-          url: "/dashboard/customers",
+          url: "/customers",
         },
         {
           title: "Segments",
-          url: "/dashboard/customers/segments",
+          url: "/customers/segments",
         },
         {
           title: "Import/Export",
-          url: "/dashboard/customers/import-export",
+          url: "/customers/import-export",
         },
       ],
     },
     {
       title: "Orders",
-      url: "/dashboard/orders",
+      url: "/orders",
       icon: ShoppingCart,
       items: [
         {
           title: "All Orders",
-          url: "/dashboard/orders",
+          url: "/orders",
         },
         {
           title: "Pending Orders",
-          url: "/dashboard/orders/pending",
+          url: "/orders/pending",
         },
         {
           title: "Completed Orders",
-          url: "/dashboard/orders/completed",
+          url: "/orders/completed",
         },
       ],
     },
 
     {
       title: "Invoices",
-      url: "/dashboard/invoices",
+      url: "/invoices",
       icon: FileText,
       items: [
         {
           title: "All Invoices",
-          url: "/dashboard/invoices",
+          url: "/invoices",
         },
         {
           title: "Pending",
-          url: "/dashboard/invoices/pending",
+          url: "/invoices/pending",
         },
         {
           title: "Paid",
-          url: "/dashboard/invoices/paid",
+          url: "/invoices/paid",
         },
       ],
     },
     {
       title: "Reports",
-      url: "/dashboard/reports/sales",
+      url: "/reports/sales",
       icon: BarChart,
       items: [
         {
           title: "Sales Report",
-          url: "/dashboard/reports/sales",
+          url: "/reports/sales",
         },
         {
           title: "Customer Insights",
-          url: "/dashboard/reports/customer-insights",
+          url: "/reports/customer-insights",
         },
         {
           title: "Revenue",
-          url: "/dashboard/reports/revenue",
+          url: "/reports/revenue",
         },
       ],
     },
     {
       title: "Settings",
-      url: "/dashboard/settings/general",
+      url: "/settings/general",
       icon: Settings2,
       items: [
         {
           title: "General",
-          url: "/dashboard/settings/general",
+          url: "/settings/general",
         },
         {
           title: "Users & Permissions",
-          url: "/dashboard/settings/users",
+          url: "/settings/users",
         },
         {
           title: "Integrations",
-          url: "/dashboard/settings/integrations",
+          url: "/settings/integrations",
         },
         {
           title: "API Settings",
-          url: "/dashboard/settings/api",
+          url: "/settings/api",
         },
       ],
     },
@@ -159,29 +159,29 @@ export const sidebarMenus = {
   navSecondary: [
     {
       title: "Support",
-      url: "/dashboard/support",
+      url: "/support",
       icon: LifeBuoy,
     },
     {
       title: "Feedback",
-      url: "/dashboard/feedback",
+      url: "/feedback",
       icon: Send,
     },
   ],
   workspaces: [
     {
       name: "Customer Management",
-      url: "/dashboard/customers",
+      url: "/customers",
       icon: Frame,
     },
     {
       name: "Sales Performance",
-      url: "/dashboard/reports/sales",
+      url: "/reports/sales",
       icon: PieChart,
     },
     {
       name: "Business Expansion",
-      url: "/dashboard/reports/sales",
+      url: "/reports/sales",
       icon: Map,
     },
   ],

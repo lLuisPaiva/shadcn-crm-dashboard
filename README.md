@@ -32,13 +32,13 @@ A modern CRM dashboard built with Next.js and Shadcn UI components, featuring a 
 ```
 src/
 ├── app/                 # Next.js App Router
-│   ├── dashboard/       # Dashboard routes
+│   ├──        # Dashboard routes
 │   └── page.tsx         # Landing page
 ├── components/
 │   ├── ui/              # Shadcn UI components
 │   └── shared/          # Shared components
 ├── features/
-│   ├── dashboard/       # Dashboard feature components
+│   ├──        # Dashboard feature components
 │   │   ├── components/  # Dashboard UI components 
 │   │   └── pages/       # Dashboard page components
 │   └── landing/         # Landing page components
