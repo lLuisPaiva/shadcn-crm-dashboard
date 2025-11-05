@@ -11,8 +11,9 @@ export function getSupabaseClient(): SupabaseClient {
     return supabaseInstance;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  // Get and trim environment variables to handle any whitespace issues
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
   if (!supabaseUrl || !supabaseAnonKey) {
     // Throw error in runtime if not configured
@@ -20,6 +21,21 @@ export function getSupabaseClient(): SupabaseClient {
     throw new Error(
       "Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables."
     );
+  }
+
+  // Validate URL format
+  try {
+    const url = new URL(supabaseUrl);
+    if (!url.protocol.startsWith("http")) {
+      throw new Error(`Invalid Supabase URL protocol: ${url.protocol}. Must be http:// or https://`);
+    }
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(
+        `Invalid Supabase URL format: "${supabaseUrl}". Must be a valid HTTP or HTTPS URL.`
+      );
+    }
+    throw error;
   }
 
   supabaseInstance = createClient(supabaseUrl, supabaseAnonKey);

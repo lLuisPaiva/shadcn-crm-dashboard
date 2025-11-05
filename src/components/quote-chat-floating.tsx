@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { QuoteChat } from "@/components/quote-chat";
 import { useQuoteChat } from "@/contexts/quote-chat-context";
@@ -43,6 +45,10 @@ export function QuoteChatFloating() {
           side="right"
           className="flex h-full w-full flex-col p-0 sm:max-w-2xl"
         >
+          <SheetTitle className="sr-only">Chat</SheetTitle>
+          <SheetDescription className="sr-only">
+            Chat para solicitar orçamento ou agendar consulta
+          </SheetDescription>
           <div className="flex h-full flex-col overflow-hidden">
             <QuoteChat />
           </div>

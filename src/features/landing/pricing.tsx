@@ -191,6 +191,7 @@ export function Pricing() {
             className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-base sm:text-base md:text-lg"                                    
             size="lg"
             variant="outline"
+            mode="schedule"
           >
             {t.pricing.consultation.cta}
           </QuoteChatButton>

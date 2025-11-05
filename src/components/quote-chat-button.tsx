@@ -12,6 +12,7 @@ interface QuoteChatButtonProps {
   className?: string;
   icon?: React.ReactNode;
   onClick?: () => void;
+  mode?: "quote" | "schedule";
 }
 
 export function QuoteChatButton({
@@ -21,11 +22,12 @@ export function QuoteChatButton({
   className,
   icon,
   onClick,
+  mode = "quote",
 }: QuoteChatButtonProps) {
   const { openChat } = useQuoteChat();
 
   const handleClick = () => {
-    openChat();
+    openChat(mode);
     onClick?.();
   };
 

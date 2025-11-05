@@ -10,6 +10,9 @@ import { useLanguage } from "@/lib/i18n/context";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { submitQuote, type QuoteData as QuoteDataType } from "@/lib/supabase/quotes";
+import { submitAppointment, type AppointmentData as AppointmentDataType } from "@/lib/supabase/appointments";
+import { useQuoteChat } from "@/contexts/quote-chat-context";
+import { ScheduleCalendar } from "@/components/schedule-calendar";
 
 interface Message {
   id: string;
@@ -55,15 +58,26 @@ const isValidPhone = (phone: string): boolean => {
 
 export function QuoteChat() {
   const { t, language } = useLanguage();
+  const { mode } = useQuoteChat();
   const isPT = language === "pt";
   
+  // Determine initial message based on mode
+  const getInitialMessage = () => {
+    if (mode === "schedule") {
+      return isPT
+        ? "Olá! 👋 Estou aqui para ajudá-lo a agendar uma consulta gratuita.\n\nVou mostrar-lhe os horários disponíveis e pode escolher quando prefere a nossa reunião via Google Meet.\n\nEstá pronto para ver os horários disponíveis?"
+        : "Hello! 👋 I'm here to help you schedule a free consultation.\n\nI'll show you available time slots and you can choose when you'd like to meet via Google Meet.\n\nReady to see available times?";
+    }
+    return isPT
+      ? "Olá! 👋 Estou aqui para ajudá-lo a solicitar um orçamento personalizado da Typeble.\n\nEm vez de preencher um formulário longo, vamos conversar! Vou fazer algumas perguntas rápidas para entender melhor as necessidades da sua empresa.\n\nEstá pronto para começar?"
+      : "Hello! 👋 I'm here to help you request a personalized Typeble quote.\n\nInstead of filling out a long form, let's chat! I'll ask you a few quick questions to better understand your company's needs.\n\nReady to start?";
+  };
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
       role: "assistant",
-      content: isPT
-        ? "Olá! 👋 Estou aqui para ajudá-lo a solicitar um orçamento personalizado da Typeble.\n\nEm vez de preencher um formulário longo, vamos conversar! Vou fazer algumas perguntas rápidas para entender melhor as necessidades da sua empresa.\n\nEstá pronto para começar?"
-        : "Hello! 👋 I'm here to help you request a personalized Typeble quote.\n\nInstead of filling out a long form, let's chat! I'll ask you a few quick questions to better understand your company's needs.\n\nReady to start?",
+      content: getInitialMessage(),
       timestamp: new Date(),
     },
   ]);
@@ -73,6 +87,13 @@ export function QuoteChat() {
   const [currentStep, setCurrentStep] = useState<QuestionStep>("welcome");
   const [quoteData, setQuoteData] = useState<QuoteData>({});
   const [validationError, setValidationError] = useState("");
+  const [scheduleData, setScheduleData] = useState<{
+    name?: string;
+    email?: string;
+    date?: string;
+    time?: string;
+  }>({});
+  const [showCalendar, setShowCalendar] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -137,22 +158,91 @@ export function QuoteChat() {
     },
   };
 
-  const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
-
-    // Validate contact (email or phone) on company step
-    if (currentStep === "company") {
-      const contactValue = input.trim();
-      if (!isValidEmail(contactValue) && !isValidPhone(contactValue)) {
+  // Handle schedule mode flow
+  const handleScheduleFlow = async (userMessage: Message) => {
+    if (currentStep === "welcome") {
+      // Ask for name
+      setScheduleData({ ...scheduleData, name: userMessage.content });
+      setCurrentStep("company");
+      addAssistantMessage(
+        isPT
+          ? "Perfeito! Qual é o seu email para enviarmos o link do Google Meet?"
+          : "Perfect! What's your email so we can send you the Google Meet link?"
+      );
+    } else if (currentStep === "company") {
+      // Validate and save email, then show calendar
+      const email = userMessage.content.trim();
+      if (!isValidEmail(email)) {
         setValidationError(
           isPT
-            ? "Por favor, introduza um email válido ou um número de telefone válido."
-            : "Please enter a valid email or phone number."
+            ? "Por favor, introduza um email válido."
+            : "Please enter a valid email address."
         );
         return;
       }
       setValidationError("");
+      setScheduleData({ ...scheduleData, email });
+      setCurrentStep("contact");
+      setShowCalendar(true);
+      addAssistantMessage(
+        isPT
+          ? "Excelente! Agora escolha uma data e horário que seja conveniente para si:"
+          : "Great! Now choose a date and time that works for you:"
+      );
     }
+  };
+
+  // Handle schedule confirmation
+  const handleScheduleConfirm = async (date: string, time: string) => {
+    setIsLoading(true);
+    setShowCalendar(false);
+    
+    // Show loading message
+    addAssistantMessage(
+      isPT
+        ? "A guardar o seu agendamento..."
+        : "Saving your appointment..."
+    );
+
+    // Submit to Supabase
+    const appointmentData: AppointmentDataType = {
+      name: scheduleData.name || "",
+      email: scheduleData.email || "",
+      appointmentDate: date,
+      appointmentTime: time,
+    };
+
+    const result = await submitAppointment(appointmentData);
+
+    // Format date for display
+    const dateObj = new Date(date);
+    const formattedDate = dateObj.toLocaleDateString(isPT ? "pt-PT" : "en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    if (result.success) {
+      addAssistantMessage(
+        isPT
+          ? `✅ Excelente escolha! A sua consulta está agendada para:\n\n📅 **Data:** ${formattedDate}\n🕐 **Hora:** ${time}\n\n📧 Vamos enviar um email para ${scheduleData.email} com o link do Google Meet e os detalhes da reunião.\n\nObrigado por agendar connosco! 🚀`
+          : `✅ Great choice! Your consultation is scheduled for:\n\n📅 **Date:** ${formattedDate}\n🕐 **Time:** ${time}\n\n📧 We'll send an email to ${scheduleData.email} with the Google Meet link and meeting details.\n\nThank you for scheduling with us! 🚀`
+      );
+    } else {
+      addAssistantMessage(
+        isPT
+          ? `❌ Ocorreu um erro ao guardar o seu agendamento. Por favor, tente novamente ou contacte-nos diretamente.\n\nErro: ${result.error || "Erro desconhecido"}`
+          : `❌ An error occurred while saving your appointment. Please try again or contact us directly.\n\nError: ${result.error || "Unknown error"}`
+      );
+    }
+
+    setIsLoading(false);
+    setCurrentStep("contact");
+  };
+
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -162,15 +252,40 @@ export function QuoteChat() {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const userInputValue = input.trim();
     setInput("");
     setIsLoading(true);
     setValidationError("");
+
+    // Handle schedule mode differently
+    if (mode === "schedule") {
+      await new Promise((resolve) => setTimeout(resolve, 800));
+      await handleScheduleFlow(userMessage);
+      setIsLoading(false);
+      return;
+    }
+
+    // Original quote flow
+    // Validate contact (email or phone) on company step
+    if (currentStep === "company") {
+      const contactValue = userInputValue;
+      if (!isValidEmail(contactValue) && !isValidPhone(contactValue)) {
+        setValidationError(
+          isPT
+            ? "Por favor, introduza um email válido ou um número de telefone válido."
+            : "Please enter a valid email or phone number."
+        );
+        setIsLoading(false);
+        return;
+      }
+      setValidationError("");
+    }
 
     // Simular delay de processamento
     await new Promise((resolve) => setTimeout(resolve, 800));
 
     // Processar resposta e atualizar dados
-    const userInput = input.trim().toLowerCase();
+    const userInput = userInputValue.toLowerCase();
     
     if (currentStep === "welcome") {
       setQuoteData({ ...quoteData, companyName: userMessage.content });
@@ -300,7 +415,9 @@ export function QuoteChat() {
     }
   };
 
-  const isComplete = currentStep === "summary";
+  const isComplete = 
+    (mode === "quote" && currentStep === "summary") ||
+    (mode === "schedule" && scheduleData.date && scheduleData.time && currentStep === "contact");
 
   return (
     <div className="flex h-full flex-col overflow-hidden">
@@ -312,12 +429,22 @@ export function QuoteChat() {
           </div>
           <div>
             <h2 className="text-xl font-semibold">
-              {isPT ? "Solicitar Orçamento" : "Request Quote"}
+              {mode === "schedule"
+                ? isPT
+                  ? "Agendar Consulta"
+                  : "Schedule Consultation"
+                : isPT
+                  ? "Solicitar Orçamento"
+                  : "Request Quote"}
             </h2>
             <p className="text-muted-foreground text-sm">
-              {isPT
-                ? "Converse connosco para um orçamento personalizado"
-                : "Chat with us for a personalized quote"}
+              {mode === "schedule"
+                ? isPT
+                  ? "Marque uma consulta gratuita via Google Meet"
+                  : "Schedule a free consultation via Google Meet"
+                : isPT
+                  ? "Converse connosco para um orçamento personalizado"
+                  : "Chat with us for a personalized quote"}
             </p>
           </div>
         </div>
@@ -397,6 +524,64 @@ export function QuoteChat() {
                     >
                       {message.content}
                     </ReactMarkdown>
+                    {/* Quick action buttons for initial message */}
+                    {message.id === "1" && currentStep === "welcome" && (
+                      <div className="mt-4 flex gap-2">
+                        <Button
+                          size="sm"
+                          onClick={() => {
+                            if (mode === "schedule") {
+                              const response = isPT ? "Sim" : "Yes";
+                              const userMsg: Message = {
+                                id: Date.now().toString(),
+                                role: "user",
+                                content: response,
+                                timestamp: new Date(),
+                              };
+                              // Add user message to chat
+                              setMessages((prev) => [...prev, userMsg]);
+                              // Process the flow
+                              setTimeout(async () => {
+                                await handleScheduleFlow(userMsg);
+                              }, 100);
+                            } else {
+                              const response = isPT ? "Sim, estou pronto" : "Yes, I'm ready";
+                              setInput(response);
+                              handleSend();
+                            }
+                          }}
+                          className="text-xs"
+                        >
+                          {mode === "schedule"
+                            ? isPT
+                              ? "Sim, vamos começar"
+                              : "Yes, let's start"
+                            : isPT
+                              ? "Sim, estou pronto"
+                              : "Yes, I'm ready"}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => {
+                            const response = mode === "schedule"
+                              ? (isPT ? "Não, obrigado" : "No, thanks")
+                              : (isPT ? "Agora não" : "Not now");
+                            setInput(response);
+                            handleSend();
+                          }}
+                          className="text-xs"
+                        >
+                          {mode === "schedule"
+                            ? isPT
+                              ? "Não, obrigado"
+                              : "No, thanks"
+                            : isPT
+                              ? "Agora não"
+                              : "Not now"}
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <p className="text-sm whitespace-pre-wrap leading-relaxed">
@@ -427,6 +612,36 @@ export function QuoteChat() {
               </div>
             </div>
           )}
+          
+          {/* Calendar for schedule mode */}
+          {showCalendar && mode === "schedule" && (
+            <div className="flex justify-start" id="calendar-container">
+              <div className="bg-muted max-w-[90%] rounded-lg p-4">
+                <ScheduleCalendar
+                  onSlotSelect={(date, time) => {
+                    setScheduleData({ ...scheduleData, date, time });
+                    handleScheduleConfirm(date, time);
+                  }}
+                  selectedDate={scheduleData.date}
+                  selectedTime={scheduleData.time}
+                  onTimeSlotsReady={() => {
+                    // Scroll to calendar container when time slots are ready
+                    const calendarContainer = document.getElementById("calendar-container");
+                    if (calendarContainer) {
+                      const scrollViewport = scrollRef.current?.querySelector('[data-radix-scroll-area-viewport]') as HTMLElement;
+                      if (scrollViewport) {
+                        const containerTop = calendarContainer.offsetTop;
+                        scrollViewport.scrollTo({
+                          top: containerTop - 20, // Small offset
+                          behavior: "smooth"
+                        });
+                      }
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </ScrollArea>
 
@@ -437,10 +652,20 @@ export function QuoteChat() {
             <div className="flex items-center justify-center gap-2 rounded-lg bg-primary/5 p-4">
               <CheckCircle2 className="text-primary h-5 w-5" />
               <p className="text-sm font-medium">
-                {isPT
-                  ? "Pedido enviado com sucesso!"
-                  : "Request submitted successfully!"}
+                {mode === "schedule"
+                  ? isPT
+                    ? "Consulta agendada com sucesso!"
+                    : "Consultation scheduled successfully!"
+                  : isPT
+                    ? "Pedido enviado com sucesso!"
+                    : "Request submitted successfully!"}
               </p>
+            </div>
+          ) : showCalendar && mode === "schedule" ? (
+            <div className="text-muted-foreground text-center text-sm">
+              {isPT
+                ? "Selecione uma data e horário acima"
+                : "Select a date and time above"}
             </div>
           ) : currentStep === "contact" ? (
             // Integration type selection buttons

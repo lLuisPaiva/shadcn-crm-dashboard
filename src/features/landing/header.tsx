@@ -57,6 +57,11 @@ const NavLink = ({
  */
 const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const languages = [
     { code: "en" as const, label: "English", flag: "🇬🇧" },
@@ -64,27 +69,30 @@ const LanguageSelector = () => {
     { code: "da" as const, label: "Dansk", flag: "🇩🇰" },
   ];
 
+  // Use "EN" as default during SSR to prevent hydration mismatch
+  const displayLanguage = mounted ? language : "en";
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline">
-            {languages.find((l) => l.code === language)?.code.toUpperCase()}
+            {languages.find((l) => l.code === displayLanguage)?.code.toUpperCase() || "EN"}
           </span>
           <span className="sm:hidden">
-            {languages.find((l) => l.code === language)?.code.toUpperCase()}
+            {languages.find((l) => l.code === displayLanguage)?.code.toUpperCase() || "EN"}
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
             className={cn(
               "gap-2",
-              language === lang.code && "bg-accent"
+              displayLanguage === lang.code && "bg-accent"
             )}
           >
             <span>{lang.flag}</span>
