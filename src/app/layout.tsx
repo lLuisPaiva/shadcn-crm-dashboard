@@ -5,6 +5,8 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { LanguageProvider } from "@/lib/i18n/context";
+import { QuoteChatProvider } from "@/contexts/quote-chat-context";
+import { QuoteChatFloating } from "@/components/quote-chat-floating";
 
 export const metadata: Metadata = {
   title: "Typeble - Work The Way You Talk | Real System Integration",
@@ -28,7 +30,12 @@ export default function RootLayout({
           forcedTheme={undefined}
         >
           <LanguageProvider>
-            <TooltipProvider>{children}</TooltipProvider>
+            <QuoteChatProvider>
+              <TooltipProvider>
+                {children}
+                <QuoteChatFloating />
+              </TooltipProvider>
+            </QuoteChatProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

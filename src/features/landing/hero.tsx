@@ -193,7 +193,7 @@ export function Hero() {
             <div className="text-center">
               <div className="flex items-center justify-center gap-1.5">
                 <Users className="h-4 w-4 text-green-500" aria-hidden="true" />
-                <p className="text-lg font-bold">Human</p>
+                <p className="text-lg font-bold">100%</p>
               </div>
               <p className="text-muted-foreground text-xs">
                 {t.hero.stats.actions}

@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/context";
+import { QuoteChatButton } from "@/components/quote-chat-button";
 
 /**
  * SectionTitle component for consistent headings across sections
@@ -95,19 +96,19 @@ const PricingCard = ({ tier, index }: { tier: any; index: number }) => {
         </ul>
       </CardContent>
       <CardFooter className="p-3 sm:p-4 pt-0">
-        <Button
+        <QuoteChatButton
           className={cn(
             "h-9 sm:h-10 w-full font-semibold tracking-wide text-base sm:text-base md:text-lg",
             tier.name === "Enterprise" ? "gap-2" : "",
           )}
           size="lg"
           variant={tier.popular ? "default" : "outline"}
+          icon={(tier.name === "Enterprise Solutions" || tier.name === "Soluções Empresariais") ? (
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          ) : undefined}
         >
           {tier.cta}
-          {(tier.name === "Enterprise Solutions" || tier.name === "Soluções Empresariais") && (
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          )}
-        </Button>
+        </QuoteChatButton>
       </CardFooter>
     </Card>
   );
@@ -186,13 +187,13 @@ export function Pricing() {
           <p className="text-muted-foreground mx-auto mt-3 sm:mt-4 text-base max-w-2xl">
             {t.pricing.consultation.description}
           </p>
-          <Button
-            className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-base sm:text-base md:text-lg"
+                    <QuoteChatButton
+            className="mt-6 sm:mt-8 h-11 sm:h-12 px-6 sm:px-8 font-semibold tracking-wide text-base sm:text-base md:text-lg"                                    
             size="lg"
             variant="outline"
           >
             {t.pricing.consultation.cta}
-          </Button>
+          </QuoteChatButton>
         </div>
       </div>
     </section>

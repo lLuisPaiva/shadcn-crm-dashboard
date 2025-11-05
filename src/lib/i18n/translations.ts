@@ -163,9 +163,9 @@ export const translations: Record<Language, Translations> = {
       seePlatforms: "SEE HOW IT WORKS",
       footer: "No Complex Training • Speak Naturally • Instant Results",
       stats: {
-        integrations: "System Integrations",
-        companies: "Satisfied Companies",
-        actions: "Actions Executed",
+        integrations: "Fewer clicks required",
+        companies: "Faster with chat actions",
+        actions: "Multi-device ready",
       },
     },
     features: {
@@ -364,12 +364,12 @@ export const translations: Record<Language, Translations> = {
       ],
       getStarted: "COMEÇAR AGORA",
       seePlatforms: "VER COMO FUNCIONA",
-      footer: "Sem Formação Complexa • Fale Naturalmente • Resultados Imediatos",
-      stats: {
-        integrations: "Integrações de Sistemas",
-        companies: "Empresas Satisfeitas",
-        actions: "Ações Executadas",
-      },
+              footer: "Sem Formação Complexa • Fale Naturalmente • Resultados Imediatos",
+        stats: {
+          integrations: "Menos cliques necessários",
+          companies: "Mais rápido com ações de chat",
+          actions: "Pronto para múltiplos dispositivos",
+        },
     },
     features: {
       title: "Converse Com Os Seus Sistemas",
@@ -569,9 +569,9 @@ export const translations: Record<Language, Translations> = {
       seePlatforms: "SE HVORDAN DET VIRKER",
       footer: "Ingen Kompleks Træning • Tal Naturligt • Øjeblikkelige Resultater",
       stats: {
-        integrations: "Systemintegrationer",
-        companies: "Tilfredse Virksomheder",
-        actions: "Handlinger Udført",
+        integrations: "Færre klik påkrævet",
+        companies: "Hurtigere med chat-aktioner",
+        actions: "Klar til flere enheder",
       },
     },
     features: {

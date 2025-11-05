@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/context";
+import { QuoteChatButton } from "@/components/quote-chat-button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,7 +39,7 @@ const NavLink = ({
       href={href}
       onClick={onClick}
       className={cn(
-        "relative rounded-md px-4 py-2 text-sm font-medium tracking-wide transition-all",
+        "relative whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium tracking-wide transition-all",
         isActive
           ? "bg-primary text-primary-foreground"
           : "text-muted-foreground hover:bg-background/80 hover:text-foreground",
@@ -68,10 +69,10 @@ const LanguageSelector = () => {
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline">
-            {languages.find((l) => l.code === language)?.flag} {languages.find((l) => l.code === language)?.label}
+            {languages.find((l) => l.code === language)?.code.toUpperCase()}
           </span>
           <span className="sm:hidden">
-            {languages.find((l) => l.code === language)?.flag}
+            {languages.find((l) => l.code === language)?.code.toUpperCase()}
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -157,11 +158,9 @@ export function Header() {
               {/* Desktop CTA */}
               <div className="hidden items-center gap-3 md:flex">
                 <LanguageSelector />
-                <Link href="/#contact">
-                  <Button variant="ghost" className="font-medium tracking-wide">
-                    {t.header.nav.contact}
-                  </Button>
-                </Link>
+                <QuoteChatButton variant="ghost" className="font-medium tracking-wide">
+                  {t.header.nav.contact}
+                </QuoteChatButton>
                 <Link href="/dashboard">
                   <Button className="px-4 font-medium tracking-wide">
                     {t.header.cta}
@@ -216,25 +215,23 @@ export function Header() {
                   </NavLink>
                 );
               })}
-              <div className="border-border/50 mt-6 grid grid-cols-2 gap-3 border-t pt-6">
-                <Link href="/#contact" className="w-full">
-                  <Button
+                              <div className="border-border/50 mt-6 grid grid-cols-2 gap-3 border-t pt-6">
+                  <QuoteChatButton
                     variant="outline"
                     className="w-full font-medium tracking-wide"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {t.header.nav.contact}
-                  </Button>
-                </Link>
-                <Link href="/dashboard" className="w-full">
-                  <Button
-                    className="w-full font-medium tracking-wide"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {t.header.cta}
-                  </Button>
-                </Link>
-              </div>
+                  </QuoteChatButton>
+                  <Link href="/dashboard" className="w-full">
+                    <Button
+                      className="w-full font-medium tracking-wide"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t.header.cta}
+                    </Button>
+                  </Link>
+                </div>
               <div className="flex items-center justify-between pt-6">
                 <LanguageSelector />
                 <ModeToggle />
